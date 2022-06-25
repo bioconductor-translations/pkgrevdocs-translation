@@ -1,0 +1,10 @@
+# The LICENSE file
+
+The license field should preferably refer to a standard license (see \[wikipedia\]\[wiki-license\]) using one of
+<i class="fab fa-r-project"></i>’s \[standard specifications\]\[R License\].
+
+Licenses restricting use, e.g., to academic or non-profit researchers, are not suitable for \[*Bioconductor*\]\[\]. Core Bioconductor packages are typically licensed under `Artistic-2.0`.
+
+To specify a non-standard license, include this `LICENSE` file in your package (containing the full terms of your license) and use the string `file LICENSE` in this `License:` field. The LICENSE file if provided should match the `License` field in the [Description file](#description-license)
+
+The package should contain only code that can be redistributed according to the package license. Be aware of the licensing agreements for packages you are depending on in your package. Not all packages are open source even if they are publicly available.
