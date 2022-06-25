@@ -1,0 +1,45 @@
+# Package data
+
+When developing a software package, an excellent practice is to give a comprehensive illustration of the methods in the package using an existing \[experiment data package\]\[exptdata-views\], \[annotation data\]\[annotation-views\] or data in the *[ExperimentHub](https://bioconductor.org/packages/3.15/ExperimentHub)* or *[AnnotationHub](https://bioconductor.org/packages/3.15/AnnotationHub)*, or submitting new data to those resources yourself.
+
+If existing data is not available or applicable, or a new smaller dataset is needed for examples in the package, data can be included either as a separate data package (for larger amounts of data) or within the package (for smaller datasets).
+
+The Bioconductor Build system does not support git-lfs. This is not a current option for storing large data. Large data sets must be included through the *[ExperimentHub](https://bioconductor.org/packages/3.15/ExperimentHub)*. See additional information at \[Create A Hub Package\]\[\].
+
+## Experiment Data Package
+
+Experimental data packages contain data specific to a particular analysis or experiment. They often accompany a software package for use in the examples and vignettes and in general are not updated regularly. If you need a general subset of data for workflows or examples first check the *[AnnotationHub](https://bioconductor.org/packages/3.15/AnnotationHub)* resource for available files (e.g., BAM, FASTA, BigWig, etc.) or *[ExperimentHub](https://bioconductor.org/packages/3.15/ExperimentHub)* for more processed and predefined *Bioconductor* class structures.
+
+\[*Bioconductor*\]\[\] strongly encourages creating an experiment data package that utilizes *[ExperimentHub](https://bioconductor.org/packages/3.15/ExperimentHub)* or *[AnnotationHub](https://bioconductor.org/packages/3.15/AnnotationHub)* (See \[Create A Hub Package\]\[\]) but a traditional package that encapsulates the data is also acceptable with pre-approval from the \[bioc-devel\]\[bioc-devel-mail\] mailing list.
+
+See the [Package Submission guidelines](#bioconductor-package-submissions) for further submission procedures and if submitting related or circular dependent packages please read \[releated package submission procedure\]\[cirdep\]
+
+## Adding Data to Existing Package
+
+\[*Bioconductor*\]\[\] strongly encourages the use of existing datasets, but if not available data can be included directly in the package for use in the examples found in man pages, vignettes, and tests of your package. This is a good reference by Hadley Wickham about [packge data](http://r-pkgs.had.co.nz/data.html).
+
+However, as mentioned in [The DESCRIPTION file](#description-lazydata) chapter, *Bioconductor* does not encourage using `LazyData: True` despite its recommendataion in this article.
+
+Some key points are summarized in the following sections.
+
+### Exported Data and the `data/` directory
+
+Data in `data/` is exported to the user and readily available. It is made available in an <i class="fab fa-r-project"></i> session through the use of `data()`. It will require documentation concerning its creation and source information. It is most often a `.RData` file created with `save()` but other types are acceptable as well, see `?data()`.
+
+Please remember to compress the data.
+
+### Raw Data and the `inst/extdata/` directory
+
+It is often desirable to show a workflow which involves the parsing or loading of raw files. \[*Bioconductor*\]\[\] recommends finding existing raw data already provided in another package or the hubs as previously stated.
+
+However, if this is not applicable, raw data files should be included in the `inst/extdata` directory. Files of these type are often accessed utilizing `system.file()`. *Bioconductor* requires documentation on these files in an `inst/script/` directory. See [data documentation](#doc-inst-script).
+
+### Internal data
+
+Rarely, a package may require parsed data that is used internal but should not be exported to the user. An `R/sysdata.rda` is often the best place to include this type of data. Proper documentation of the data will be required.
+
+### Other data
+
+Downloads of files and external data from the web should be avoided.
+
+If it is necessary, at minimum the files should be cached. See *[BiocFileCache](https://bioconductor.org/packages/3.15/BiocFileCache)* for Bioconductor recommended package for caching of files. If a maintainer creates their own caching directory, it should utilize standard caching directories `tools::R_user_dir(package, which="cache")`. It is not allowed to download or write any files to a users home directory, working directory, or installed package directory. Files should be cached as stated above with `BiocFileCache` (preferred) or `R_user_dir` or `tempdir()/tempfile()` if files should not be persistent. Please also see sections on [querying web resources](#querying-web-resources) and [file downloads](#web-querying-and-file-caching).
