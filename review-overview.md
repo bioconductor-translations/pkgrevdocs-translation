@@ -1,0 +1,14 @@
+# (PART) Package Reviewer Resources
+
+# Overview
+
+The following sections contain resources for package reviewers and those
+interested in becoming package reviewers. You will find reviewer
+expectations, useful tools, and how to volunteer to be a community
+reviewer.
+
+We also encourage communication and conversation on any package review
+from the community in addition to assigned reviewers: \[Packages Under
+Review\]\[\]. All package reviews are publicly accessible, therefore any
+feedback and interactions on submitted packages must abide by the
+Bioconductor \[Code of Conduct\]\[\].

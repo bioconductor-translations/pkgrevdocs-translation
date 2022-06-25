@@ -1,0 +1,24 @@
+# The `.gitignore` file
+
+\[*Bioconductor*\]\[\] requires a Git repository for submission.
+
+There are certain system files that should not be tracked by the
+repository and are unacceptable to include. These files can remain on a
+local system but should be excluded from the Git repository which is
+possible by including a `.gitignore` file.
+
+The following are files that are checked by
+*[BiocCheck](https://bioconductor.org/packages/3.15/BiocCheck)* and
+flagged as unacceptable:
+
+    hidden_file_ext = c(
+        ".renviron", ".rprofile", ".rproj", ".rproj.user", ".rhistory",
+        ".rapp.history", ".o", ".sl", ".so", ".dylib", ".a", ".dll",
+        ".def", ".ds_store", "unsrturl.bst", ".log", ".aux", ".backups",
+        ".cproject", ".directory", ".dropbox", ".exrc", ".gdb.history",
+        ".gitattributes", ".gitmodules", ".hgtags", ".project", ".seed",
+        ".settings", ".tm_properties"
+    )
+
+There should only be one `.gitignore` file in the top level of a package
+directory.

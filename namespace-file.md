@@ -1,0 +1,30 @@
+# The NAMESPACE file
+
+A
+[NAMESPACE](http://cran.fhcrc.org/doc/manuals/R-exts.html#Package-namespaces)
+file defines the functions, classes, and methods that are imported into
+the namespace, and exported for users.
+
+In the following section we describe what \[*Bioconductor*\]\[\]
+reviewers will be looking for in this file.
+
+## Function names
+
+Exported functions should use camel case or underscoring and not include
+`.`, which indicates S3 dispatch. Functions starting with `.` should not
+be exported as that indicates an internal function.
+
+## Imported functions
+
+Generally `importFrom()` is encouraged over importing an entire package.
+However, if there are many functions from a single package, `import()`
+can be acceptable. If a particular *Bioconductor* class is used or
+extended it is highly recommended to `import()` the full package so that
+full class functionality is inherited automatically; there are
+exceptions depending on implementation and necessity.
+
+## Exported functions
+
+Exporting all functions with `exportPattern("^[[:alpha:]]+")` is
+strongly discouraged and almost always not allowed. Functions and
+generics should be exported individually, for clarity and control.

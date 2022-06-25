@@ -1,0 +1,104 @@
+# General *Bioconductor* Package Development
+
+## Version of *Bioconductor* and <i class="fab fa-r-project"></i>
+
+Package developers should always use the \[devel version of
+*Bioconductor*\]\[‘devel’ version\] and \[*Bioconductor*
+packages\]\[biocViews\] when developing and testing packages to be
+contributed.
+
+Depending on the <i class="fab fa-r-project"></i> release cycle, using
+\[*Bioconductor*\]\[\] devel may or may not involve also using the devel
+version of <i class="fab fa-r-project"></i>. See the how-to on \[using
+devel version of Bioconductor\]\[‘devel’ version\] for up-to-date
+information.
+
+## Correctness, Space and Time
+
+### R CMD build
+
+\[*Bioconductor*\]\[\] packages must minimally pass `R CMD build` (or
+`R CMD INSTALL --build`) and pass `R CMD check` with no errors and no
+warnings using a recent R-devel. Authors should also try to address all
+errors, warnings, and notes that arise during build or check.
+
+### BiocCheck
+
+Packages must also pass `BiocCheck::BiocCheckGitClone()` and
+`BiocCheck::BiocCheck('new-package'=TRUE)` with no errors and no
+warnings. The
+*[BiocCheck](https://bioconductor.org/packages/3.15/BiocCheck)* package
+is a set of tests that encompass \[*Bioconductor*\]\[\] Best Practices.
+Every effort should be made to address any errors, warnings, and notes
+that arise during this build or check.
+
+### ERROR, WARNGING, and NOTES
+
+The \[*Bioconductor*\]\[\] team member assigned to review the package
+during the submission process will expect all ERROR, WARNINGS, and NOTES
+to be addressed from both R CMD build, R CMD check, and BiocCheck. If
+there are any remaining, a justification of why they are not corrected
+will be expected.
+
+### File names
+
+Do not use filenames that differ only in case, as not all file systems
+are case-sensitive.
+
+### Package size
+
+The source package resulting from running `R CMD build` should occupy
+less than 5 MB on disk.
+
+### Check duration
+
+The package should require less than 10 minutes to run
+`R CMD check --no-build-vignettes`. Using the `--no-build-vignettes`
+option ensures that the vignette is built only once. [1]
+
+### Memory
+
+Vignette and man page examples should not use more than 3 GB of memory
+since <i class="fab fa-r-project"></i> cannot allocate more than this on
+32-bit Windows.
+
+### Individual file size
+
+For software packages, individual files must be &lt;= 5MB. This
+restriction exists even after the package is accepted and added to the
+\[*Bioconductor*\]\[\] repository. See [data section](#data) for advice
+on packages using large data files.
+
+### Undesirable files
+
+The raw package directory should not contain unnecessary files, system
+files, or hidden files such as `.DS_Store`, `.project`, `.git`, cache
+files, log files, `*.Rproj`, `*.so`, etc. These files may be present in
+your local directory but should not be commited to git (see <span
+id="gitignore">`.gitignore`</span>). Any files or directories for other
+applications (Github Actions, devtool, etc) should ideally be in a
+different branch and not submitted to the *Bioconductor* version of the
+package.
+
+## R CMD check environment
+
+It is possible to activate or deactivate a number of options in
+`R CMD build` and `R CMD check`. Options can be set as individual
+environment variables or they can be [listed in a
+file](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages).
+Descriptions of all the different options available can be found
+[here](https://cran.r-project.org/doc/manuals/r-devel/R-ints.html#Tools).
+\[*Bioconductor*\]\[\] has chosen to customize some of these options for
+incoming submission during `R CMD check`. The file of utilized flags can
+be downloaded from [<i class="fab fa-github"></i>
+GitHub](https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron).
+The file can either be placed in a default directory as directed
+[here](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages)
+or can be set through environment variable `R_CHECK_ENVIRON` with a
+command similar to:
+
+    export R_CHECK_ENVIRON = <path to downloaded file>
+
+[1] This is true only for Software Packages. Experiment Data,
+Annotation, and Workflow packages are allowed additional space and check
+time.

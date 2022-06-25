@@ -1,0 +1,46 @@
+# Fortran / C / C++ / Python / Third-Party Code
+
+If the package contains C or Fortran code, it should adhere to the
+standards and methods described in the \[System and foreign language
+interfaces\]\[CRAN foreign\] section of the \[Writing R Extensions\]\[\]
+manual.
+
+## Makevars
+
+Make judicious use of the `Makevars` and `Makefile` files within a
+package. These are often not required at all (See the \[Configure and
+cleanup\]\[CRAN config\] section of the \[Writing R Extensions\]\[\]
+manual).
+
+## Fortran
+
+Consider utilizing the \[dotCall64\]\[\] CRAN package.
+
+## C / C++
+
+The \[Rcpp\]\[\] CRAN package allows seamless integration of C++ with
+`R`, and is cross-platform. The package affords many of the same
+benefits for the `R` C interface that make C++ so appealing as a
+language, while eliminating many of the pitfalls of programming to the
+`R` interface.
+
+The package is well documented, and has an extensive repository of
+working examples for many tasks: the \[Rcpp Gallery\]\[\].
+
+## Python
+
+The *[basilisk](https://bioconductor.org/packages/3.15/basilisk)*
+package is encouraged to integrate python into R packages. Alternatively
+\[reticulate\]\[\] may be utilized but basilisk is preferred.
+
+## Other
+
+Use of external libraries whose functionality is redundant with
+libraries already supported is strongly discouraged. In cases where the
+external library is complex, the author may need to supply pre-built
+binary versions for some platforms.
+
+By including third-party code a package maintainer assumes
+responsibility for maintenance of that code. Part of the maintenance
+responsibility includes keeping the code up to date as bug fixes and
+updates are released for the mainline third-party project.

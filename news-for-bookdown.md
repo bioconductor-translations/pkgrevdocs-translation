@@ -1,0 +1,11 @@
+# NEWS
+
+## Version 1.0.1 (2021-08-19)
+
+-   Add a dedicated section on the package name.
+
+## Version 1.0.0 (2021-06-02)
+
+-   Initial definition of the package development guidelines based on
+    Bioconductor package guidelines listed on main Bioconductor.org
+    website.
