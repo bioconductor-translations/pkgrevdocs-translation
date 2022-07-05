@@ -1,0 +1,54 @@
+# Review Expectations
+
+Anyone from the Bioconductor community that has a package in Bioconductor can volunteer to become a community reviewer to assess incoming packages submitted through the \[New Submission Tracker\]\[Packages Under Review\]. The following overviews what is expected of community reviewers.
+
+-   [Qualifications](#review-qualifications)
+-   [Time Commitment](#review-time-commitment)
+-   [Assignments](#review-assignments)
+-   [Expectations and deadlines](#review-expectations-and-deadlines)
+-   [Requesting reassignment and temporary leave of assignment](#review-reassignment-and-temporary-leave)
+-   [On-boarding](#review-onboarding)
+-   [Recognition](#review-recognition)
+-   [Volunteer](#review-volunteer)
+
+## Qualifications
+
+Actively maintaining a Bioconductor package
+
+## Time commitment
+
+Package reviews can vary depending on the quality and organization of the submitted package. On average a package review for a single package is between 30 min - 1.5 hour.
+
+We also plan to have a quarterly “all-hands” meeting of all currently active reviewers. This meeting will be to acquaint reviewers with any new requirements, classes, checks activated in CRAN or BiocCheck, etc. It will also be a place to raise questions or comments to the larger group and perhaps point out frequently used comments (that perhaps could be implemented as an automated check). Everyone ends up having slightly different review styles and it could be beneficial to discuss what everyone finds a priority. Every effort should be made to attend these meetings and we would expect a reviewer to attend at least once a year.
+
+## Assignments
+
+Packages will be assigned evenly and randomly, the more community review engagement the more distributed but currently anticipate a package assigned once every week or every 2 weeks. More during the weeks leading up to a Bioconductor release.
+
+‘Additional Package’/‘Circular dependency’ packages are submitted occasionally. Submitters are allowed to submit related packages under the same issue. When this occurs, the assigned reviewer is responsible for both reviews and should not accept the issue until both packages are in an accepted state.
+
+## Expectations and deadlines
+
+Package\[s\] will be expected to be reviewed within 3 weeks of assignment and producea clean build report from the build machine. We plan to make a hard limit for 3 weeks. If the delay is on the submitter, the issue will be closed for inactivity; it will be reopened when a submitter can commit to timely updates and engagement of the review process. If the delay is in the reviewer, it will be reassigned to someone else. We will keep track of how many reassignments occur and if there are frequent reassignments (3-4 unexplained) we will remove the reviewer and the person must reapply to be reactivated. Active reviewers are expected to review at least 1 package per Bioconductor release cycle. Otherwise they will be removed from being an active reviewer.
+
+## Requesting reassignment and temporary leave of assignment
+
+If a temporary leave of assigning packages needs to occur (vacation, particularly busy period of time, etc), a reviewer should reach out to a package review committee administrator. The administrator will temporarily stop assignments and can discuss if currently assigned packages need re-assignment.
+
+There is a \[reviewers slack channel\]\[\] for package reviewers to ask questions and if necessary ask to swap/switch/volunteer to review packages. Requests can also be made by directly contacting the package review administrator.
+
+Reviewers should not request reassignment simply because of lack of interest or lack of expertise in a particular area. The review should focus on ease-of-use of the package, documentation, well written code, and interoperability. If a reviewer knows of a particular ‘expert’ in the field relating to the submitted package they can request someone offer additional comments (including those not officially part of the package review list) without explicitly asking for reassignment.
+
+Frequent requests for reassignement should consider a longer leave of absence agreement with the package review administrator. If frequent requests are being made for reassignement the reviewer will be notified and at risk for being removed from the active review process. If a reviewer is removed, they must reapply to become an active reviewer.
+
+## On-boarding
+
+New volunteers will undergo an on-boarding process before becoming fully active reviewers. The on-boarding process involves doing at least one paired review with a currently active reviewing member. Coordination of the paired review should be communicated between the mentor and mentee. The recommended practice will be that each do a separate review of a currently submitted package and compare the results. The currently active member will then decide if another paired review is necessary or if the review was sufficient to continue on with solo reviews.
+
+## Recognition
+
+Feel free to advertise on CV and resumes as being a Bioconductor reviewer. Reviewers will also be listed on the \[Community Reviewers Webpage\]\[reviewer-list\]. Reviewers may optionally opt-out of being listed on the webpage by contacting a package review administrator. Ideally, we plan to have badges for notable achievements and milestones, and a sticker is in progress.
+
+## Volunteer
+
+Refer to the chapter [Volunteer to Review](#review-volunteer-chapter) for more details.
