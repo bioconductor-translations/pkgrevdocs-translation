@@ -1,0 +1,55 @@
+# Reviewer Resources and Tools
+
+Reviewers may find the following links and references useful.
+
+## Package Review checklist
+
+Reviewers can download a template review checklist
+<a href="docs/package-review-checklist.md" target="_blank">here</a>
+<i class="fas fa-external-link-alt"></i>.
+
+This checklist can be pasted into the relevant issue of the \[New Submission Tracker\]\[Packages Under Review\], and updated as the review progresses.
+
+## Example Review
+
+Example Software Package Reviews:
+<ul>
+<li>
+[Review 1787:
+MAGAR](https://github.com/Bioconductor/Contributions/issues/1787)
+</li>
+<li>
+[Review 2090:
+HubPub](https://github.com/Bioconductor/Contributions/issues/2090)
+</li>
+<li>
+[Review 1229:
+BiocSet](https://github.com/Bioconductor/Contributions/issues/1229)
+</li>
+<li>
+[Review 1659:
+AnVILBilling](https://github.com/Bioconductor/Contributions/issues/1659)
+</li>
+<li>
+[Review 1671:
+AnVILPublish](https://github.com/Bioconductor/Contributions/issues/1671)
+</li>
+<li>
+[Review 311:
+AnnotationFilter](https://github.com/Bioconductor/Contributions/issues/311)
+</li>
+</ul>
+Example of Large Data Package / Request conversion to Hub:
+<ul>
+<li>
+[Review 498:
+restfulSEData](https://github.com/Bioconductor/Contributions/issues/498)
+</li>
+</ul>
+Example of Multiple Package Review / AdditionalPackage usage:
+<ul>
+<li>
+[Review 1270:
+biscuiteerData/biscuiteer](https://github.com/Bioconductor/Contributions/issues/1270)
+</li>
+</ul>
