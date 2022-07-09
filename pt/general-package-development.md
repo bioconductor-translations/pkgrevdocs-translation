@@ -22,7 +22,7 @@ O membro da equipa \[*Bioconductor*\]\[\] atribuído para rever o pacote durante
 
 ### Nomes de ficheiro
 
-Não use nomes de arquivos que diferem apenas em caixa (maiúsculas e minúsculas), pois nem todos os sistemas de arquivos são sensíveis a maiúsculas e minúsculas.
+Não use nomes de arquivos que diferem apenas na capitalização, pois nem todos os sistemas de arquivos são sensíveis a maiúsculas e minúsculas.
 
 ### Tamanho de pacote
 
@@ -47,9 +47,9 @@ id="gitignore">`.gitignore`</span>). Todos os arquivos ou diretórios para outra
 
 ## Ambiente de Verificação R CMD
 
-É possível ativar ou desativar várias opções em `R CMD build`  e `R CMD check`. Options can be set as individual environment variables or they can be [listed in a file](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages). Descriptions of all the different options available can be found [here](https://cran.r-project.org/doc/manuals/r-devel/R-ints.html#Tools). \[*Bioconductor*\]\[\] has chosen to customize some of these options for incoming submission during `R CMD check`. The file of utilized flags can be downloaded from [<i class="fab fa-github"></i>
-GitHub](https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron). The file can either be placed in a default directory as directed [here](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages) or can be set through environment variable `R_CHECK_ENVIRON` with a command similar to:
+É possível ativar ou desativar várias opções em `R CMD build`  e `R CMD check`. As opções podem ser definidas como variáveis de ambiente individuais ou podem ser [listadas em um ficheiro ](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages). As descrições de todas as diferentes opções disponíveis podem ser encontradas [aqui](https://cran.r-project.org/doc/manuals/r-devel/R-ints.html#Tools). \[*Bioconductor*\]\[\] optou por personalizar algumas dessas opções para submissões recebidas durante a `R CMD check`. O ficheiro de flags utilizadas pode ser descarregado do [<i class="fab fa-github"></i>
+GitHub](https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron). O ficheiro pode ser colocado num directório por defeito (default directory), conforme as instruções [aqui](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages) ou pode ser definida através da variável de ambiente `R_CHECK_ENVIRON` com um comando semelhante a:
 
     export R_CHECK_ENVIRON = <path to downloaded file>
 
-[1] This is true only for Software Packages. Experiment Data, Annotation, and Workflow packages are allowed additional space and check time.
+[1] Isto é verdadeiro apenas para pacotes de software. Para Dados da Experiência (Experiment Data), Anotação, e pacotes de Workflow é permitido espaço adicional e verificação de tempo.
