@@ -2,7 +2,7 @@
 
 ## Version of *Bioconductor* and <i class="fab fa-r-project"></i>
 
-Package developers should always use the \[devel version of *Bioconductor*\]\[‘devel’ version\] and \[*Bioconductor* packages\]\[biocViews\] when developing and testing packages to be contributed.
+Os criadores dos pacotes devem usar sempre a \[devel version of *Bioconductor*\]\[‘devel’ version\] e \[*Bioconductor* packages\]\[biocViews\] quando desenvolvem e testam pacotes a serem contribuídos.
 
 Depending on the <i class="fab fa-r-project"></i> release cycle, using \[*Bioconductor*\]\[\] devel may or may not involve also using the devel version of <i class="fab fa-r-project"></i>. See the how-to on \[using devel version of Bioconductor\]\[‘devel’ version\] for up-to-date information.
 
