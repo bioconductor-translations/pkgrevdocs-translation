@@ -1,18 +1,18 @@
-# 欢迎
+# 歡迎來到 Bioconductor
 
 <img src="https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/Bioconductor/Bioconductor.png" height="200px" style="display: block; margin: auto;" />
 
-## 介绍
+## 簡介
 
-[*Bioconductor*](https://bioconductor.org) 项目促进高质量的、拥有良好文档的且互通的软件。 这些指南有助于实现这一目标，而不是为了给软件包作者带来过重的负担。 难以 满足准则的作者应当寻求[bioc-devel](https://stat.ethz.ch/mailman/listinfo/bioc-devel) 邮件列表征求意见。
+[*Bioconductor*](https://bioconductor.org) 是一個推廣 “高質量”，“完整文件庫” 和 “可互相操作” 軟件的計畫． 這個操作指南主要來幫助達成軟體開發者達成這項任務．這份指南不是用來增加軟體開發者的負擔，如有任何疑問題，可透過 [bioc-devel](https://stat.ethz.ch/mailman/listinfo/bioc-devel) 郵件討論群尋求協助．
 
-当开发[*Bioconductor*](https://bioconductor.org)包时，软件包维护者应尽可能严格地遵守这些指南。
+當開發 [*Bioconductor*](https://bioconductor.org) 包時，我們懇請所有的軟體維護人盡可能的遵守該指南．
 
-创作 R 软件包的一般说明可在[Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) 手册中找到。可在 <i class="fab fa-r-project"></i>
-(`RShowDoc("R-exts")`) 或 [R 网站](http://cran.fhcrc.org/manuals.html) 查阅。
+製作 R 包的一般說明可在， [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) 手冊<i class="fab fa-r-project"></i>
+(`RShowDoc("R-exts")`) 或 [R 網站](http://cran.fhcrc.org/manuals.html) ，找尋更多訊息.
 
-请记住，这些是接受软件包的最低要求，软件包仍将受以下其他准则的约束，并需接受受过培训的 [*Bioconductor* 包 审查员](https://bioconductor.org/about/package-reviewers/) 的正式技术审查。
+請記住，這些是接受包裹的最低要求，並該 R 包仍將遵守以下其他準則，並且由培訓過的 [*Bioconductor* 包審閱者](https://bioconductor.org/about/package-reviewers/) 正式的進行技術審查.
 
-## 参与贡献
+## 貢獻
 
-此书为开源资源，托管于<https://github.com/Bioconductor/pkgrevdocs>。 我们欢迎贡献，并鼓励采取分叉（forks）和拉取请求（pull requests）的形式。
+本指南是一份開源書籍，託管在<https://github.com/Bioconductor/pkgrevdocs>． Contributions are welcome and encouraged in the form of forks and pull requests.
