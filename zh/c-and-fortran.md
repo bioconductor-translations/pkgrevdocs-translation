@@ -14,11 +14,11 @@
 
 ### 檢查用戶中斷
 
-Use `R_CheckUserInterrupt()` in C level loops when there is a chance that they may not terminate for certain parameter settings or when their run time exceeds 10 seconds with typical parameter settings, and the method is intended for interactive use.
+當有可能因某些參數設置，或當他們的典型參數設置，運行時間超過 10 秒，並且 方法旨在用於交互式使用時，請在 C 級循環 （C level loops) 中使用 `R_CheckUserInterrupt()`．
 
 ### Makevars
 
-Make judicious use of the `Makevars` and `Makefile` files within a package. These are often not required at all (See the \[Configure and cleanup\]\[CRAN config\] section of the \[Writing R Extensions\]\[\] manual).
+建議靈活使用在每個包裡的 `Makevars` 和 `Makefile` 文件。 這些通常根本不需要（參見\[Writing R Extensions\]\[\] 手冊 的 \[Configure and cleanup\]\[CRAN config\] 小節）。
 
 ### 警告與最佳化 (Warnings and optimizations)
 
