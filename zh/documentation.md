@@ -1,8 +1,8 @@
-# 帮助文档
+# Documentation
 
-软件包文档对于用户理解如何使用你的代码 非常重要。
+Package documentation is important for users to understand how to work with your code.
 
-## Bioconductor文档基本要求：
+## Bioconductor documentation minimal requirements:
 
 -   a \[vignette\]\[CRAN vigs\] in Rmd or Rnw format with executable code that demonstrates how to use the package to accomplish a task,
 
