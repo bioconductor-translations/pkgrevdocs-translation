@@ -1,16 +1,16 @@
-# General *Bioconductor* Package Development
+# *Bioconductor*  のパッケージ開発
 
 ## Version of *Bioconductor* and <i class="fab fa-r-project"></i>
 
-Package developers should always use the \[devel version of *Bioconductor*\]\[‘devel’ version\] and \[*Bioconductor* packages\]\[biocViews\] when developing and testing packages to be contributed.
+パッケージ開発者は、 *Bioconductor*\]\['devel' version\] と \[*Bioconductor* packages\]\[biocViews\] を常に使用し、 貢献するパッケージを開発およびテストする必要があります。
 
-Depending on the <i class="fab fa-r-project"></i> release cycle, using \[*Bioconductor*\]\[\] devel may or may not involve also using the devel version of <i class="fab fa-r-project"></i>. See the how-to on \[using devel version of Bioconductor\]\[‘devel’ version\] for up-to-date information.
+Depending on the <i class="fab fa-r-project"></i> release cycle, using \[*Bioconductor*\]\[\] devel may or may not involve also using the devel version of <i class="fab fa-r-project"></i>. 最新の情報については、 \[using devel version of Bioconductor\]\[‘devel’ version\] を参照してください。
 
 ## Correctness, Space and Time
 
 ### R CMD build
 
-\[*Bioconductor*\]\[\] packages must minimally pass `R CMD build` (or `R CMD INSTALL --build`) and pass `R CMD check` with no errors and no warnings using a recent R-devel. Authors should also try to address all errors, warnings, and notes that arise during build or check.
+\[*Bioconductor*\]\[\] のパッケージは少なくとも `R CMD build`  (もしくは `R CMD INSTALL --build`) をパスしないといけません。 また `R CMD check` を error と warning 無しでパスしないといけません。そしてそれは最近の R-devel 版を使ってでないといけません。 Authors should also try to address all errors, warnings, and notes that arise during build or check.
 
 ### BiocCheck
 
