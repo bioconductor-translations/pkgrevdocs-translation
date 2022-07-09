@@ -1,18 +1,18 @@
-# DESCRIPTION文件
+# The DESCRIPTION file
 
-`DESCRIPTION`文件必须以正确的格式编写。 在下面的章节中，我们将介绍`DESCRIPTION`文件中的字段以及相关文件。
+The `DESCRIPTION` file must be properly formatted. The following sections will review some important notes regarding fields of the `DESCRIPTION` file and associated files.
 
 ## `Package`
 
-此字段应包含软件包的名字。 注意软件仓库（如GitHub）和软件包的名字应该一致（其中大小写也应该一致）。
+This is the name of the package. The repository name and the name of the Package in the description should match (including case-sensitive).
 
 ## `Title`
 
-这是一小段关于软件包简单描述的短语。
+This is a brief but descriptive title for the package.
 
 ## `Version`
 
-所有\[*Bioconductor*\]软件包使用`x.y.z`版本号命名规范。 请参见 \[版本控制\]以了解Bioconductor是如何对release分支和devel分支进行版本控制的。 如果软件包是第一次提交到Bioconductor，那么其版本号应该被设为`0.99.0`。
+All \[*Bioconductor*\]\[\] packages use an `x.y.z` version scheme. See \[Version Numbering\]\[versioning\] for specifics to how the release and devel Bioconductor versioning proceeds. When first submitted to Bioconductor, a package should have pre-release version `0.99.0`.
 
 The following rules apply:
 
