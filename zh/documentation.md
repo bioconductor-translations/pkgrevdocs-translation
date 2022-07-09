@@ -1,54 +1,53 @@
-# Documentation
+# 帮助文档
 
-Package documentation is important for users to understand how to work with your code.
+软件包文档对于用户理解如何使用你的代码非常重要。
 
-## Bioconductor documentation minimal requirements:
+## Bioconductor文档基本要求：
 
--   a \[vignette\]\[CRAN vigs\] in Rmd or Rnw format with executable code that demonstrates how to use the package to accomplish a task,
+-   一个 \[vignette\]\[CRAN vigs\] 的Rmd 或 Rnw 格式文档，带有可执行的 代码，显示如何使用包来完成任务。
 
--   \[man pages\]\[CRAN Rd\] for all exported functions with runnable examples, well documented data structures especially if not a \[pre-exiting class\]\[bioc-common\]
+-   \[man pages\]\[CRAN Rd\] 记录所有导出的函数，并有它们的操作 示例，记录完善的数据结构，尤其是如果不是已经存在 \[pre-exiting class\]\[bioc-common\]的。
 
--   well documented datasets for data provided in `data/` and in `inst/extdata/`.
+-   详细记录了的数据集保存在 `data/` 和 `inst/extdata/` 中。
 
-References to the methods used as well as to other similar or related projects and packages is also expected.
+使用到的方法以及其他类似或相关的项目和包件，也应该被记录标注。
 
-If data structures differ from similar packages, \[*Bioconductor* reviewers\]\[reviewer-list\] will expect some justification as to why. Keep in mind it is always possible to extend existing classes.
+如果数据结构不同于类似的软件包，\[*Bioconductor* reviewers\]\[reviewer-list\] 将期望一些理由说明原因。 请记住，扩展现有的类（class）总是可能的。
 
 ## Vignettes
 
-A vignette demonstrates how to accomplish non-trivial tasks embodying the core functionality of your package. There are two common types of vignettes.
+Vignettes用于演示如何使用包的核心功能完成重要任务。 有两种常见类型的vignettes。
 
--   A *Sweave* vignette is an `.Rnw` file that contains $\\LaTeX$ and chunks of <i
-    class="fab fa-r-project"></i> code. The code chunk starts with a line `<<>>=`, and ends with `@`. Each chunk is evaluated during `R CMD build`, prior to $\\LaTeX$ compilation to a PDF document.
+-   *Sweave* vergnette是一个 `.Rnw` 文件，它包含 $\\LaTeX$ 和一些 <i
+    class="fab fa-r-project"></i> 代码。 代码块以`<<>>=`开始，以`@`结束。 在`R CMD build`期间，每个代码块都会被评估。之后 $\LaTeX$会被编译为一个PDF文档。
 
--   An *R markdown* vignette is similar to a *Sweave* vignette, but uses [markdown](http://daringfireball.net/projects/markdown/) instead of $\\LaTeX$ for structuring text sections and resulting in HTML output. The `r   BiocStyle::CRANpkg("knitr")` package can process most *Sweave* and all *R markdown* vignettes, producing pleasing output. Refer to \[Writing package vignettes\]\[CRAN vigs\] for technical details. See the `r   BiocStyle::Biocpkg("BiocStyle")` package for a convenient way to use common macros and a standard *Bioconductor* style vignette.
+-   *R Markdown* vergnette 类似于 *Sweave* vergnete, 但文本部分使用[Markdown](http://daringfireball.net/projects/markdown/) 而不是$\\LaTeX$，并最终生成HTML输出。 `r BiocStyle:::CRANpkg("knitr")` 软件包可以处理大多数 *Sweave* 和所有 *R markdown* vignettes，生成美观的输出。 请参阅\[Writing package vignettes\]\[CRAN vigs\] 获取技术细节。 请参阅 `r BiocStyle::Biocpkg("BiocStyle")`包获取常用宏和标准 *Bioconductor* 风格的vignette。
 
-A vignette provides reproducibility: the vignette produces the same results as copying the corresponding commands into an
-<i class="fab fa-r-project"></i> session. It is therefore **essential** that the vignette embed executed <i
-class="fab fa-r-project"></i> code. Shortcuts (e.g., using a $\\LaTeX$ verbatim environment, or using the *Sweave* `eval=FALSE` flag, or equivalent tricks in markdown) undermine the benefit of vignettes and are generally **not allowed**; exceptions can be made with proper justification and are at the discretion of \[*Bioconductor* reviewers\]\[reviewer-list\].
+Vignette提供了可重复性：vignette将相应的命令复制到一个<i class="fab fa-r-project"></i>session，生成相同的 结果。 因此，嵌入可执行<i
+class="fab fa-r-project"></i> 代码是 **不可缺少的**。 快捷键(例如，使用 $\\LaTeX$ 逐字环境（verbatim environment），或使用 *Sweave* `eval=FALSE` ， 或 其他类似的Markdown技巧）有损于vignettes的功用， 一般不被允许 ****; 除非有适当的 理由，并由\[*Bioconductor* reviewers\]\[reviewer-list\]决定。
 
-All packages are required to have at least one Rmd or Rnw vignette. Vignettes go in the `vignettes/` directory of the package. Vignettes are often used as standalone documents, so best practices are to include an informative title, the primary author of the vignette, the last modification date of the vignette, and a link to the package landing page. We encourage the use of `r BiocStyle::Biocpkg("BiocStyle")` for formatting with `html_document` as rendering target. Something like the following in the vignette will accomplish the above suggestion:
+所有软件包都必须至少有一个 Rmd 或 Rnw vignette。 Vignettes 在包的 `vignetes/` 目录中。 Vignettes 一般是个独立的文件，所以最佳做法是包含一个有信息量的标题，主要作者，最后修改日期，和一个包的网址链接。 我们鼓励使用 `r BiocStyle::Biocpkg("BiocStyle")`来格式，将 `html_document` 作为输出目标。 vignette里放上下列 将会完成上述建议：
 
     output:
       BiocStyle::html_document:
         toc: true
         toc_depth: 2
 
-Some best practices and requirements for writing *Bioconductor* vignettes are detailed in the following sections.
+编写 *Bioconductor* vignettes 的一些最佳做法和要求详见以下章节。
 
-### Introduction
+### 介绍
 
 Add an “Introduction” section that serves as an abstract to introduce the objective, models, unique functions, key points, etc that distinguish the package from other packages in the same area. This is a requirement of Bioconductor package vignettes. It should include a short motivation for the package in general as well as motivation for inclusion of the package in Biconductor. When relevant, a brief review and comparison of packages with similar functionality or scope should be provided either in the Introduction or in a separate dedicated vignette section.
 
-### Installation
+### 安装
 
-Add an “Installation” section that show to users how to download and load the package from Bioconductor.
+添加一个“安装”部分，向用户显示如何下载和 加载Bioconductor包.
 
 These instructions and any installations instructions should be in an `eval=FALSE` code chunk. No where in the code (<i class="fab fa-r-project"></i> code, man pages, vignettes, Rmd files) should someone try to install or download system dependencies, applications, packages, etc. Developers can provide instructions to follow in unevaluated code chunks, and should assume all necessary dependencies, applications or packages are already set up on a user’s system.
 
-### Table of contents
+### 目录
 
-If appropriate, we strongly encourage a table of contents
+在适当情况下，我们强烈鼓励包含一个目录。
 
 ### Evaluated code chunks
 
