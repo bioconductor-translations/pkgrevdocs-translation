@@ -20,19 +20,19 @@ Use `R_CheckUserInterrupt()` in C level loops when there is a chance that they m
 
 Make judicious use of the `Makevars` and `Makefile` files within a package. These are often not required at all (See the \[Configure and cleanup\]\[CRAN config\] section of the \[Writing R Extensions\]\[\] manual).
 
-### Warnings and optimizations
+### 警告與最佳化 (Warnings and optimizations)
 
-During package development, enable all warnings and disable optimizations. If you plan to [use a debugger](#debugging-cc-code), tell the compiler to include debugging symbols.
+在包開發期間，啟用所有警告並禁用優化。 如果您打算[使用調試器](#debugging-cc-code)，請在編譯器設定您的調試符號。
 
-The easiest way to enforce these is to create a user-level `Makevars` file user’s home directory in a sub-directory called ‘.R’). See examples below for flags for common toolchains. Consult the section about \[Makevars files\]\[\] in the \[Writing R Extensions\]\[\] manual.
+執行這些的最簡單方法是創建用戶級 `Makevars` 文件用戶的主目錄在名為“.R”的子目錄中）。 查看下面範例 是常用工具鏈 (toolchains) 的標誌。 請查閱 \[Writing R Extensions\]\[\] 手冊的 \[Makevars files\]\[\] 取得更多細節．
 
-Example for gcc/g++:
+Gcc/g++ 範例：
 
     CFLAGS=-Wall -Wextra -pedantic -O0 -ggdb
     CXXFLAGS=-Wall -Wextra -pedantic -O0 -ggdb
     FFLAGS=-Wall -Wextra -pedantic -O0 -ggdb
 
-Example for clang/clang++:
+Clang/clang++ 範例:
 
     CFLAGS=-Weverything -O0 -g
     CXXFLAGS=-Weverything -O0 -g
