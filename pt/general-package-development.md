@@ -1,53 +1,53 @@
-# General *Bioconductor* Package Development
+# Desenvolvimento geral de pacotes *Bioconductor*
 
-## Version of *Bioconductor* and <i class="fab fa-r-project"></i>
+## Versão do *Bioconductor* e <i class="fab fa-r-project"></i>
 
 Os criadores dos pacotes devem usar sempre a \[devel version of *Bioconductor*\]\[‘devel’ version\] e \[*Bioconductor* packages\]\[biocViews\] quando desenvolvem e testam pacotes a serem contribuídos.
 
-Depending on the <i class="fab fa-r-project"></i> release cycle, using \[*Bioconductor*\]\[\] devel may or may not involve also using the devel version of <i class="fab fa-r-project"></i>. See the how-to on \[using devel version of Bioconductor\]\[‘devel’ version\] for up-to-date information.
+Dependendo do ciclo de lançamento <i class="fab fa-r-project"></i>, usar \[*Bioconductor*\]\[\] devel pode ou não envolver também o uso da versão do devel <i class="fab fa-r-project"></i>. Veja o guia prático em \[using devel version of Bioconductor\]\[‘devel’ version\] para informações atualizadas.
 
-## Correctness, Space and Time
+## Exatidão, Espaço e Hora
 
-### R CMD build
+### Construção de CMD R
 
-\[*Bioconductor*\]\[\] packages must minimally pass `R CMD build` (or `R CMD INSTALL --build`) and pass `R CMD check` with no errors and no warnings using a recent R-devel. Authors should also try to address all errors, warnings, and notes that arise during build or check.
+Os pacotes \[*Bioconductor*\]\[\] devem passar minimamente a compilação `R CMD build` (ou `R CMD INSTALL --build`) e passar `R CMD check` sem erros e sem avisos usando um R-devel recente. Os autores também devem tentar resolver todos os erros, avisos e notas que surgiram durante a compilação ou verificação.
 
 ### BiocCheck
 
-Packages must also pass `BiocCheck::BiocCheckGitClone()` and `BiocCheck::BiocCheck('new-package'=TRUE)` with no errors and no warnings. The *[BiocCheck](https://bioconductor.org/packages/3.15/BiocCheck)* package is a set of tests that encompass \[*Bioconductor*\]\[\] Best Practices. Every effort should be made to address any errors, warnings, and notes that arise during this build or check.
+Os pacotes também devem passar `BiocCheck::BiocCheckGitClone()` e `BiocCheck::BiocCheck('new-package'=TRUE)` sem erros e sem avisos. O pacote *[BiocCheck](https://bioconductor.org/packages/3.15/BiocCheck)* é um conjunto de testes que envolvem \[*Bioconductor*\]\[\] Melhores Práticas. Todos os esforços devem ser feitos para corrigir quaisquer erros, avisos e notas que surjam durante esta compilação ou verificação.
 
-### ERROR, WARNGING, and NOTES
+### ERRO, AVISOS e NOTAS
 
-The \[*Bioconductor*\]\[\] team member assigned to review the package during the submission process will expect all ERROR, WARNINGS, and NOTES to be addressed from both R CMD build, R CMD check, and BiocCheck. If there are any remaining, a justification of why they are not corrected will be expected.
+O membro da equipa \[*Bioconductor*\]\[\] atribuído para rever o pacote durante o processo de envio esperará que todos os ERROS, AVISOS e NOTAS sejam tratados tanto na compilação R CMD (R CMD build), verificação R de CMD (R CMD check) e BiocCheck. Se há qualquer remanescente, uma justificação do porquê de não serem corrigidos será de esperar.
 
-### File names
+### Nomes de ficheiro
 
-Do not use filenames that differ only in case, as not all file systems are case-sensitive.
+Não use nomes de arquivos que diferem apenas em caixa (maiúsculas e minúsculas), pois nem todos os sistemas de arquivos são sensíveis a maiúsculas e minúsculas.
 
-### Package size
+### Tamanho de pacote
 
-The source package resulting from running `R CMD build` should occupy less than 5 MB on disk.
+O pacote fonte resultante da execução `R CMD build` deve ocupar menos de 5 MB em disco.
 
-### Check duration
+### Duração da verificação
 
-The package should require less than 10 minutes to run `R CMD check --no-build-vignettes`. Using the `--no-build-vignettes` option ensures that the vignette is built only once. [1]
+O pacote deve demorar menos de 10 minutos para executar `R CMD check --no-build-vignettes`. Usando a opção `--no-build-vignettes` garante que a vinheta seja construída apenas uma vez. [1]
 
-### Memory
+### Memória
 
-Vignette and man page examples should not use more than 3 GB of memory since <i class="fab fa-r-project"></i> cannot allocate more than this on 32-bit Windows.
+Os exemplos de páginas de vignette e man não devem usar mais do que 3 GB de memória pois <i class="fab fa-r-project"></i> não pode alocar mais do que isso no Windows 32-bit.
 
-### Individual file size
+### Tamanho de ficheiro individual
 
-For software packages, individual files must be &lt;= 5MB. This restriction exists even after the package is accepted and added to the \[*Bioconductor*\]\[\] repository. See [data section](#data) for advice on packages using large data files.
+Para pacotes de software, os ficheiros individuais têm de ser &lt;= 5MB. Esta restrição existe mesmo depois de o pacote ser aceite e adicionado ao repositório \[*Bioconductor*\]\[\]. Ver [seção de dados](#data) para conselhos sobre pacotes que usam grandes arquivos de dados.
 
-### Undesirable files
+### Ficheiros indesejados
 
-The raw package directory should not contain unnecessary files, system files, or hidden files such as `.DS_Store`, `.project`, `.git`, cache files, log files, `*.Rproj`, `*.so`, etc. These files may be present in your local directory but should not be commited to git (see <span
-id="gitignore">`.gitignore`</span>). Any files or directories for other applications (Github Actions, devtool, etc) should ideally be in a different branch and not submitted to the *Bioconductor* version of the package.
+O directório de pacotes em bruto (raw) não deve conter ficheiros desnecessários, ficheiros de sistema, ou ficheiros ocultos como `.DS_Store`, `.project`, `.git`, ficheiros cache, ficheiros de registo (log), `*.Rproj`, `*.so`, etc. Estes ficheiros podem estar presentes no diretório local, mas não devem ser enviados (commited) para o git (veja <span
+id="gitignore">`.gitignore`</span>). Todos os arquivos ou diretórios para outras aplicaticações (Github Actions, devtool, etc.) idealmente devem estar em um branch diferente e não devem ser enviados para a versão do *Bioconductor* do pacote.
 
-## R CMD check environment
+## Ambiente de Verificação R CMD
 
-It is possible to activate or deactivate a number of options in `R CMD build` and `R CMD check`. Options can be set as individual environment variables or they can be [listed in a file](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages). Descriptions of all the different options available can be found [here](https://cran.r-project.org/doc/manuals/r-devel/R-ints.html#Tools). \[*Bioconductor*\]\[\] has chosen to customize some of these options for incoming submission during `R CMD check`. The file of utilized flags can be downloaded from [<i class="fab fa-github"></i>
+É possível ativar ou desativar várias opções em `R CMD build`  e `R CMD check`. Options can be set as individual environment variables or they can be [listed in a file](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages). Descriptions of all the different options available can be found [here](https://cran.r-project.org/doc/manuals/r-devel/R-ints.html#Tools). \[*Bioconductor*\]\[\] has chosen to customize some of these options for incoming submission during `R CMD check`. The file of utilized flags can be downloaded from [<i class="fab fa-github"></i>
 GitHub](https://github.com/Bioconductor/packagebuilder/blob/master/check.Renviron). The file can either be placed in a default directory as directed [here](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Checking-and-building-packages) or can be set through environment variable `R_CHECK_ENVIRON` with a command similar to:
 
     export R_CHECK_ENVIRON = <path to downloaded file>
