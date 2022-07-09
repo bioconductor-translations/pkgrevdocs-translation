@@ -1,18 +1,18 @@
-# Welcome
+# 欢迎
 
 <img src="https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/Bioconductor/Bioconductor.png" height="200px" style="display: block; margin: auto;" />
 
-## Introduction
+## 介绍
 
-The [*Bioconductor*](https://bioconductor.org) project promotes high-quality, well documented, and interoperable software. These guidelines help to achieve this objective; they are not meant to put undue burden on package authors, and authors having difficultly satisfying guidelines should seek advice on the [bioc-devel](https://stat.ethz.ch/mailman/listinfo/bioc-devel) mailing list.
+[*Bioconductor*](https://bioconductor.org) 项目促进高质量的、拥有良好文档的且可互操作的软件。 这些指南有助于实现这一目标，而不是为了给软件包作者带来过重的负担。 难以 满足准则的作者应当寻求[bioc-devel](https://stat.ethz.ch/mailman/listinfo/bioc-devel) 邮件列表征求意见。
 
-Package maintainers are urged to follow these guidelines as closely as possible when developing [*Bioconductor*](https://bioconductor.org) packages.
+当开发[*Bioconductor*](https://bioconductor.org)包时，软件包维护者应尽可能严格地遵守这些指南。
 
-General instructions for producing R packages can be found in the [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) manual, available from within <i class="fab fa-r-project"></i>
-(`RShowDoc("R-exts")`) or on the [R website](http://cran.fhcrc.org/manuals.html).
+创作 R 软件包的一般说明可在[Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) 手册中找到。可在 <i class="fab fa-r-project"></i>
+(`RShowDoc("R-exts")`) 或 [R 网站](http://cran.fhcrc.org/manuals.html) 查阅。
 
-Remember these are the minimum requirements for package acceptance and the package will still be subject to other guidelines below and a formal technical review by trained [*Bioconductor* package reviewer](https://bioconductor.org/about/package-reviewers/) .
+请记住，这些是接受软件包的最低要求，软件包仍将受以下其他准则的约束，并需接受受过培训的 [*Bioconductor* 包 审查员](https://bioconductor.org/about/package-reviewers/) 的正式技术审查。
 
-## Contribute
+## 参与贡献
 
-This book is open-source and hosted at <https://github.com/Bioconductor/pkgrevdocs>. Contributions are welcome and encouraged in the form of forks and pull requests.
+此书为开源资源，托管于<https://github.com/Bioconductor/pkgrevdocs>。 我们欢迎贡献，并鼓励采取分叉（forks）和拉取请求（pull requests）的形式。
