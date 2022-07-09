@@ -10,13 +10,13 @@
 
 -   详细记录了的数据集保存在 `data/` 和 `inst/extdata/` 中。
 
-使用到的方法以及其他类似或相关的项目和包件，也应该被记录标注。
+使用到的方法以及其他类似或相关的项目和包件，应该被引用和标注。
 
 如果数据结构不同于类似的软件包，\[*Bioconductor* reviewers\]\[reviewer-list\] 将期望一些理由说明原因。 请记住，扩展现有的类（class）总是可能的。
 
 ## Vignettes
 
-Vignettes用于演示如何使用包的核心功能完成重要任务。 有两种常见类型的vignettes。
+Vignette用于演示如何使用包的核心功能完成重要任务。 有两种常见类型的vignette。
 
 -   *Sweave* vergnette是一个 `.Rnw` 文件，它包含 $\\LaTeX$ 和一些 <i
     class="fab fa-r-project"></i> 代码。 代码块以`<<>>=`开始，以`@`结束。 在`R CMD build`期间，每个代码块都会被评估。之后 $\LaTeX$会被编译为一个PDF文档。
@@ -26,7 +26,7 @@ Vignettes用于演示如何使用包的核心功能完成重要任务。 有两�
 Vignette提供了可重复性：vignette将相应的命令复制到一个<i class="fab fa-r-project"></i>session，生成相同的 结果。 因此，嵌入可执行<i
 class="fab fa-r-project"></i> 代码是 **不可缺少的**。 快捷键(例如，使用 $\\LaTeX$ 逐字环境（verbatim environment），或使用 *Sweave* `eval=FALSE` ， 或 其他类似的Markdown技巧）有损于vignettes的功用， 一般不被允许 ****; 除非有适当的 理由，并由\[*Bioconductor* reviewers\]\[reviewer-list\]决定。
 
-所有软件包都必须至少有一个 Rmd 或 Rnw vignette。 Vignettes 在包的 `vignetes/` 目录中。 Vignettes 一般是个独立的文件，所以最佳做法是包含一个有信息量的标题，主要作者，最后修改日期，和一个包的网址链接。 我们鼓励使用 `r BiocStyle::Biocpkg("BiocStyle")`来格式，将 `html_document` 作为输出目标。 vignette里放上下列 将会完成上述建议：
+所有软件包都必须至少有一个 Rmd 或 Rnw vignette。 Vignette在包的 `vignetes/` 目录中。 Vignette一般是个独立的文件，所以最佳做法是包含一个有信息量的标题，主要作者，最后修改日期，和一个包的网址链接。 我们鼓励使用 `r BiocStyle::Biocpkg("BiocStyle")`来格式，将 `html_document` 作为输出目标。 vignette里放上下列 将会完成上述建议：
 
     output:
       BiocStyle::html_document:
@@ -35,77 +35,77 @@ class="fab fa-r-project"></i> 代码是 **不可缺少的**。 快捷键(例如�
 
 编写 *Bioconductor* vignettes 的一些最佳做法和要求详见以下章节。
 
-### 介绍
+### 导言 Introduction
 
-Add an “Introduction” section that serves as an abstract to introduce the objective, models, unique functions, key points, etc that distinguish the package from other packages in the same area. This is a requirement of Bioconductor package vignettes. It should include a short motivation for the package in general as well as motivation for inclusion of the package in Biconductor. When relevant, a brief review and comparison of packages with similar functionality or scope should be provided either in the Introduction or in a separate dedicated vignette section.
+增加一个“导言”部分，作为一个摘要，介绍 目的、模型， 独有的函数、其他关键点等，用于 区分和同一领域其他包有什么不同。 这是Bioconductor vignette的要求。 它应该包含简短的本包的 动机以及为什么 Bioconductor 应该包含 此包的动机。 当相关时， 简短评论 和与其功能类似或范围比较接近的软件包应该在导言或单独一个专用vignette 部分中提供 。
 
-### 安装
+### 安装 Installation
 
-添加一个“安装”部分，向用户显示如何下载和 加载Bioconductor包.
+添加一个“安装”部分，向用户显示如何下载和加载Bioconductor包。
 
-These instructions and any installations instructions should be in an `eval=FALSE` code chunk. No where in the code (<i class="fab fa-r-project"></i> code, man pages, vignettes, Rmd files) should someone try to install or download system dependencies, applications, packages, etc. Developers can provide instructions to follow in unevaluated code chunks, and should assume all necessary dependencies, applications or packages are already set up on a user’s system.
+这些说明和任何安装说明应该在一个 `eval=FALSE` 代码块中。 文档 (<i class="fab fa-r-project"></i> code, man pages, vignettes, Rmd files) 不应该试图安装或下载系统依赖， 应用程序、 软件包等。 开发者可以在不被执行的代码块里为 提供指导，并应假设所有必需的 依赖、应用程序或软件包已经在用户的 系统上设置好。
 
-### 目录
+### 目录 Table of contents
 
 在适当情况下，我们强烈鼓励包含一个目录。
 
-### Evaluated code chunks
+### 执行代码块 Evaluated code chunks
 
-Non-trival executable code is a must!!!
+有意义的可执行的代码是必须的！！！
 
-Static vignettes are not acceptable.
+静态vignettes是不可接受的。
 
-### Session information
+### 会话信息 Session information
 
-Include a section with the `SessionInfo()` at the end of the vignette.
+在vignette末尾包含一个 `SessionInfo()` 的部分。
 
-### `vignettes/` directory and intermediate files
+### `vignettes/` 目录和中间文件
 
-Only the source vignette file (`.Rnw` or `.Rmd`) and any necessary static images should be in the vignette directory. No intermediate files should be present. This include complete processed vignette products as well; the vignette should be created through the `R CMD build` of a package. To include other types of documentation please use the `inst/doc` or other appropriately named `inst` directory.
+只有源vignette文件(`.Rnw` or `.Rmd`) 和任何必需的 静态图像应该在 vignette 目录中。 不应该存在中间文件。 这也包括完整的执行vignette后的产物；vignette应通过 软件包的 `R CMD build` 创建。 若要包含其他类型的文档，请使用 `instal/doc` 或其他恰当命名的 `inst` 目录。
 
-### References
+### 参考文献 References
 
-Remember to include any relevant references to methods.
+请记住包含任何有关方法的引用。
 
-## Man pages
+## Man 页面
 
-See the \[Writing R Extensions section on man pages\]\[CRAN Rd\] for detailed instruction or format information for documenting a package, functions, classes, and data sets.
+请参阅\[Writing R Extensions section on man pages\]\[CRAN Rd\] 获取 详细的包的格式信息、 功能、类和数据集。
 
-All help pages should be comprehensive.
+所有帮助页面都应该是全面的。
 
-### Package-level documentation
+### 包一级文档
 
-\[*Bioconductor*\]\[\] encourages having a package man page with an overview of the package and links to the main functions. Users should be able to have a relevant page display with `?<package name>`
+\[*Bioconductor*\]\[\] 鼓励有一个带有 软件包概览和与主要函数链接的软件包 man 页面。 用户可以用 `?<package name>`显示页面。
 
-### Functions and classes
+### 函数和类
 
-All exported functions and classes need will have a man page. Man pages describing new classes must be very detailed on the structure and the type of information that is stored.
+所有导出的函数和类都需要有一个 man 页面。 描述新的类的man页面 必须非常详细地说明所储存的结构和信息的 类型。
 
-### Data
+### 数据
 
-Data man pages must include provenance information and data structure information.
+数据man页面必须包含来源信息和数据结构 信息。
 
-### Examples
+### 示例
 
-All man pages should have an runnable examples.
+所有man页面都应该有一个可运行的例子。
 
-The use of `donttest` and `dontrun` is discouraged and generally not allowed; exceptions can be made with proper justification and are at the discretion of \[*Bioconductor* reviewers\]\[reviewer-list\].
+`destest` 和 `dontrun` 不被鼓励使用且一般不被允许 ； 除非有适当的理由，并由\[*Bioconductor* reviewers\]\[reviewer-list\] 酌处。
 
-If this option is used it will also be preferable to use `donttest` instead of `dontrun`; `donttest` requires valid
-<i class="fab fa-r-project"></i> code while `dontrun` does not.
+如果执意使用此选项，则最好使用 `dontest` 而不是 `dontrun`; `dontest` 需要有效的
+<i class="fab fa-r-project"></i> 代码，而 `dontrun` 不用。
 
-## The `inst/script/` directory
+## `inst/script/` 目录
 
-The scripts in this directory can vary.
+此目录中的脚本可以有差异。
 
-Most importantly if data was included in the `inst/extdata/` directory, a related script must be present in this directory documenting very clearly how the data was generated and source information.
+最重要的是，如果有数据包含在 `inst/extdata/` 目录中，那么， 必须有相关脚本存在于这个目录中，并 清楚地说明数据是如何生成的和源信息。
 
-It should include source URLs and any key information regarding filtering or processing.
+它应该包含源 URL 和任何其 过滤或处理的关键信息。
 
-It can be executable code, sudo code, or a text description.
+它可以是可执行代码，sudo代码或文本描述。
 
-Users should be able to download and be able to roughly reproduce the file or object that is present as data.
+用户应该能够下载并能够大致复现存在于数据中的 文件或对象。
 
-## Other
+## 其它
 
-Other types of documentation (e.g. static files, jupyter notebooks, etc.) can be provided through `inst` subdirectories but do not substitute for the [*Bioconductor* documentation requirements](#doc-require) listed above.
+其他类型的文档(例如静态文件、jupyter notebooks 等) 可以通过 `inst` 子目录提供，但不 能替代上面列出的 [*Bioconductor* 文档 要求](#doc-require)。
