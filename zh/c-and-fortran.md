@@ -1,18 +1,18 @@
-# C and Fortran code
+# C 和 Fortran 代碼
 
-If the package contains C or Fortran code, it should adhere to the standards and methods described in the \[System and foreign language interfaces\]\[CRAN foreign\] section of the \[Writing R Extensions\]\[\] manual.
+如果該 R 包包含 C 或是 Fortran 代碼，請遵照 \[Writing R Extensions\]\[\] 手冊裡 \[System and foreign language interfaces\]\[CRAN foreign\] 小節的標準與方法．
 
-We emphasie particular points in the following sections.
+以下幾節中我們列出一些特別的注意事項。
 
-### Internal functions
+### 内部函数
 
-Use internal <i class="fab fa-r-project"></i> functions, e.g., `R_alloc` and random number generators (RNGs), over system-supplied ones.
+使用內部 <i class="fab fa-r-project"></i> 函數，例如 `R_alloc` 和隨機數生成器 (RNG)，而不是系統提供的函數。
 
-### C function registration
+### C 函數註冊
 
-Use C function registration (See the \[Registering native routines\]\[\] section of the \[Writing R Extensions\]\[\] manual).
+使用 C 函數註冊 (請參見 \[Writing R Extensions\]\[\] 手冊的 \[Registering native routines\]\[\] 小節)
 
-### Checks for user interruption
+### 檢查用戶中斷
 
 Use `R_CheckUserInterrupt()` in C level loops when there is a chance that they may not terminate for certain parameter settings or when their run time exceeds 10 seconds with typical parameter settings, and the method is intended for interactive use.
 
