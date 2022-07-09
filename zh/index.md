@@ -15,4 +15,4 @@
 
 ## 貢獻
 
-本指南是一份開源書籍，託管在<https://github.com/Bioconductor/pkgrevdocs>． Contributions are welcome and encouraged in the form of forks and pull requests.
+本指南是一份開源書籍，託管在<https://github.com/Bioconductor/pkgrevdocs>． 歡迎使用 forks 和 pull 功能，對本開源書籍計畫提供你的貢獻．
