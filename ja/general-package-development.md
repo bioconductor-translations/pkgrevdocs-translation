@@ -1,8 +1,8 @@
-# *Bioconductor*  のパッケージ開発
+# 一般 *バイオ伝導体* パッケージ開発
 
-## Version of *Bioconductor* and <i class="fab fa-r-project"></i>
+## *バイオ伝導体* およびformat@@2 <i class="fab fa-r-project"></i>
 
-パッケージ開発者は、 *Bioconductor*\]\['devel' version\] と \[*Bioconductor* packages\]\[biocViews\] を常に使用し、 貢献するパッケージを開発およびテストする必要があります。
+パッケージ開発者は、 *Bioconductor*\]\['devel' version\] と \[*Bioconductor* packages\]\[biocViews\] を常に使用し、 に貢献するパッケージを開発しテストする必要があります。
 
 Depending on the <i class="fab fa-r-project"></i> release cycle, using \[*Bioconductor*\]\[\] devel may or may not involve also using the devel version of <i class="fab fa-r-project"></i>. 最新の情報については、 \[using devel version of Bioconductor\]\[‘devel’ version\] を参照してください。
 
@@ -10,31 +10,31 @@ Depending on the <i class="fab fa-r-project"></i> release cycle, using \[*Biocon
 
 ### R CMD build
 
-\[*Bioconductor*\]\[\] のパッケージは少なくとも `R CMD build`  (もしくは `R CMD INSTALL --build`) をパスしないといけません。 また `R CMD check` を error と warning 無しでパスしないといけません。そしてそれは最近の R-devel 版を使ってでないといけません。 Authors should also try to address all errors, warnings, and notes that arise during build or check.
+\[*Bioconductor*\]\[\] のパッケージは少なくとも `R CMD build`  (もしくは `R CMD INSTALL --build`) をパスしないといけません。 また `R CMD check` を error と warning 無しでパスしないといけません。そしてそれは最近の R-devel 版を使ってでないといけません。 作成者は、ビルドまたはチェック中に発生するすべての error 、 warning 、および note に対処しようとする必要があります。
 
 ### BiocCheck
 
-Packages must also pass `BiocCheck::BiocCheckGitClone()` and `BiocCheck::BiocCheck('new-package'=TRUE)` with no errors and no warnings. The *[BiocCheck](https://bioconductor.org/packages/3.15/BiocCheck)* package is a set of tests that encompass \[*Bioconductor*\]\[\] Best Practices. Every effort should be made to address any errors, warnings, and notes that arise during this build or check.
+パッケージは `BiocCheck::BiocCheckGitClone()` と `BiocCheck::BiocCheck('new-package'=TRUE)` を error と warning 無しでパスしなければいけません。 *[BiocCheck](https://bioconductor.org/packages/3.15/BiocCheck)* パッケージ は \[*Bioconductor*\]\[\] のベストプラクティスを含む一連のテストです。 パッケージ作成者は、ビルドまたはチェック中に発生するすべての error 、 warning 、および note に対処しようとする必要があります。
 
-### ERROR, WARNGING, and NOTES
+### ERROR 、 WARNGING 、 と NOTES
 
 The \[*Bioconductor*\]\[\] team member assigned to review the package during the submission process will expect all ERROR, WARNINGS, and NOTES to be addressed from both R CMD build, R CMD check, and BiocCheck. If there are any remaining, a justification of why they are not corrected will be expected.
 
 ### File names
 
-Do not use filenames that differ only in case, as not all file systems are case-sensitive.
+すべてのファイルシステムが大文字と小文字を区別するわけではないため、OS 等の場合に限って扱いが異なるファイル名は使用しないでください。
 
 ### Package size
 
-The source package resulting from running `R CMD build` should occupy less than 5 MB on disk.
+`R CMD build` の実行から得られるソースパッケージは、ディスク上で 5 MB 未満である必要があります。
 
 ### Check duration
 
-The package should require less than 10 minutes to run `R CMD check --no-build-vignettes`. Using the `--no-build-vignettes` option ensures that the vignette is built only once. [1]
+パッケージは、 10 分未満で `R CMD check --no-build-vignettes` を実行する必要があります。 `--no-build-vignettes` オプションを使用すると、vignetteが一度だけビルドされるようになります。 [1]
 
 ### Memory
 
-Vignette and man page examples should not use more than 3 GB of memory since <i class="fab fa-r-project"></i> cannot allocate more than this on 32-bit Windows.
+Vignette と man ページ中の examples は 3 GB より大きいメモリを使ってはいけません。 32-bit のウインドウズでは <i class="fab fa-r-project"></i> はこれ以上のメモリをアロケートできないからです。
 
 ### Individual file size
 
