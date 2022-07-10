@@ -6,9 +6,9 @@
 
 任何不再使用或不再需要的函數、類、方法或數據。
 
-## 何時遵循這些準則？
+## 何時遵循棄用準則？
 
-If you introduce a function into the devel branch of your package, then soon after decide not to use it, you may simply remove the function without following these guidelines. It is expected that the devel branch is unstable and subject to API changes without notice (though you may decide to communicate these changes to your users via the Bioconductor \[support site\]\[\]).
+如果你在包的 devel 分支版本中引入一個函數，決定不再使用，您不遵循這些準則，並且直接刪除該函數。 It is expected that the devel branch is unstable and subject to API changes without notice (though you may decide to communicate these changes to your users via the Bioconductor \[support site\]\[\]).
 
 However, if a function has existed in at least one released version of Bioconductor, these guidelines *must* be followed. The process of removing a funciton, class, method, or any exported package object takes approximately three release cycles (about 18 months).
 
