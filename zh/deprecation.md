@@ -1,12 +1,12 @@
-# Deprecation Guidelines
+# 棄用指南 （Deprecation Guidelines）
 
-In the normal course of software development, functions, classes, methods, or data objects may need to be removed. Here are some guidelines for ensuring that this process is minimally disruptive to your users.
+在軟件開發的過程中，可能需要刪除某些函數 (function)、類 (class)、方法 (methods) 或數據對象 (data objects)。 以下是一些指導方針，在刪除上述項目過程中，可確保對使用者造成的最小程度的干擾。
 
-## What to Deprecate?
+## 什麼需要棄用 (Deprecate)？
 
-Any function, class, method, or data that is no longer used or needed.
+任何不再使用或不再需要的函數、類、方法或數據。
 
-## When to Follow These Guidelines?
+## 何時遵循這些準則？
 
 If you introduce a function into the devel branch of your package, then soon after decide not to use it, you may simply remove the function without following these guidelines. It is expected that the devel branch is unstable and subject to API changes without notice (though you may decide to communicate these changes to your users via the Bioconductor \[support site\]\[\]).
 
