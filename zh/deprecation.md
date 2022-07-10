@@ -26,7 +26,7 @@
 
 這會在用戶調用 <code>myOldFunc()</code> 時，發出警告提示。 請參閱 <code>?.Deprecated</code> 了解更多資訊。
 
-在舊函數的手冊頁 (man page) 中，指出該舊函數已棄用，並建議一個替換函數。 Be sure the old function is not called in man page examples or vignette code chunks; R CMD check should report this.
+在舊函數的手冊頁 (man page) 中，指出該舊函數已棄用，並建議一個替換函數。 請確保在小插圖代碼塊 ( vignette code chunks) 或手冊頁 (man page examples) 示例中未調用舊函數； 執行 R CMD 檢查時需提供如下報告。
 
     \name{MyPkg-deprecated}
     \alias{MyPkg-deprecated}
@@ -48,9 +48,9 @@
       }
     }
 
-### Step 2: Mark the function as defunct
+### 步驟 2 ：將函數標記為已失效
 
-In the next release cycle, after your function has been deprecated, it must be made defunct in the devel branch. This means a call to the old function will return an informative error but not run any additional code. Example:
+在函數被棄用後，請確保所有該棄用函數，在下一個發布週期的開發分支版本，已經無法運行且失效。 這意味著調用舊函數時，將不會運行任何其他代碼，並且返回一個信息性錯誤。 範例：
 
     myOldFunc <- function()
     {
