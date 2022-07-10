@@ -57,9 +57,9 @@
         .Defunct("myNewFunc")
     }
 
-See <code>?Defunct</code> for more information.
+有關詳細信息，請參閱 <code>?Defunct</code>。
 
-Remove the documentation of the defunct function, and add to a man page such as the following:
+刪除已棄用函數 (defunct function) 的文檔，並添如下代碼到手冊頁：
 
     \name{MyPkg-defunct}
     \alias{myOldFunc}
@@ -70,21 +70,21 @@ Remove the documentation of the defunct function, and add to a man page such as 
       Defunct functions are: \code{myOldFunc}
     }
 
-### Step 3: Remove the function
+### 步驟 3：刪除已棄用函數
 
-In the next release cycle, after your function has been marked as defunct, remove it entirely from your package R code and NAMESPACE in the devel branch. Also remove any man page content that documents the function.
+在下一個發布週期中，在您的功能被標記為 defunct，從你的包 R 代碼和 devel 分支中的 NAMESPACE 中完全刪除它。 同時，刪除該功能的任何手冊頁內容。
 
-Leave the man page from the previous step in place so that
+保留上一步的手冊頁，以便調用下面函數時
 
     help("MyPkg-defunct")
 
-still shows the list of defunct functions and their appropriate replacements.
+仍然顯示已失效函數的列表及其相應的替代函數。
 
-## How To Deprecate A Package Dataset
+## 如何棄用包數據集
 
-### Step 1 - Save a promise object
+### 步驟 1 - 保存一個承諾對象 (a promise object)
 
-The initial step of deprecating a dataset is to signal to any users on the devel branch of Bioconductor that the dataset will no longer be used. This can be done using a `warning` message when the devel user loads the dataset. In order to do this, we first create a promise object with the same name as the dataset name using the `delayedAssign` function:
+棄用數據集的第一步是向 Bioconductor 的開發分支所有使用者發出警告訊息，表明該數據集將不再被使用。 可以使用 `warning` 消息，在開發者加載該數據集時進行提示該數據已棄用。 我們首先使用 `delayedAssign` 函數，創建一個承諾對象 (a promise object) 與棄用數據集名稱同名．請使用以下範例來完成上述步驟：
 
     delayedAssign(
         x = "pkgDataset",
@@ -94,20 +94,20 @@ The initial step of deprecating a dataset is to signal to any users on the devel
         }
     )
 
-You can also include the dataset as an output after the warning. We then replace the original `.Rda` dataset file in the package with the promise object and dataset using the `save` function:
+您還包含輸出該棄用數據集在警告提示訊息裏。 然後，我們使用 `save` 函數將包中的原始 `.Rda` 數據集文件替換為 promise 對象和數據集：
 
     save("pkgDataset", eval.promises = FALSE, file = "data/pkgDataset.Rda")
 
-With the `eval.promises` argument set to `FALSE`, we can delay the evaluation of the promise object until the user loads the data with `data("pkgDataset", package = "yourPkg")`. The user will then get a warning along with the dataset. The warning should include instructions that will point the user to a new dataset or functionality that will replace the data, if necessary.
+將 `eval.promises` 參數設置為 `FALSE`，我們可以延遲 評估承諾對象，直到用戶加載數據 `data("pkgDataset", package = "yourPkg")`。 然後用戶會得到數據集與警告訊息。 警告訊息應包括說明這會將用戶指向一個新的數據集．如果有必要，也可提供函數去替換數據集．
 
-### Step 2 - Update documentation
+### 步驟 2 - 更新文檔
 
-After the promise object has been saved, we update the documentation to reflect the changes and provide additional details and resources for users as necessary. It is recommended to include a “\[Deprecated\]” label in the data documentation title.
+保存承諾對像後，我們會更新文檔以反映更改，並根據情況為用戶提供額外的詳細信息和資源。 我們建議在數據文檔標題中包含“\[Deprecated\]”標籤。
 
-### Step 3 - Defunct the dataset
+### 步驟 3 - 取消數據集
 
 In the following release cycle, you can update the warning message to indicate that the dataset is defunct and remove it entirely from the promise object i.e., from the expression in the `delayedAssign` function. We can also update the “\[Deprecated\]” label in the documentation title to “\[Defunct\]”.
 
-## How to Deprecate a Package
+## 如何棄用包
 
-Please see section on [Package End of Life Policy](#package-end-of-life-policy)
+請參閱 [Package End of Life Policy](#package-end-of-life-policy)。
