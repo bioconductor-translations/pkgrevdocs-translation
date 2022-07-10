@@ -106,7 +106,7 @@
 
 ### 步驟 3 - 取消數據集
 
-In the following release cycle, you can update the warning message to indicate that the dataset is defunct and remove it entirely from the promise object i.e., from the expression in the `delayedAssign` function. We can also update the “\[Deprecated\]” label in the documentation title to “\[Defunct\]”.
+在接下來的發布週期中，您可以將警告消息更新為表示數據集已失效，並從承諾對象移除．可透過 `delayedAssign` 函數來提示警告。 我們還可以更新 “\[Deprecated\]” 標籤文檔標題為“\[Defunct\]”。
 
 ## 如何棄用包
 
