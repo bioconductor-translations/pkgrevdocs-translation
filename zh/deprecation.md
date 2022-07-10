@@ -8,27 +8,25 @@
 
 ## 何時遵循棄用準則？
 
-如果你在包的 devel 分支版本中引入一個函數，決定不再使用，您不遵循這些準則，並且直接刪除該函數。 It is expected that the devel branch is unstable and subject to API changes without notice (though you may decide to communicate these changes to your users via the Bioconductor \[support site\]\[\]).
+如果你在包的 devel 分支版本中引入一個函數，決定不再使用，您不遵循這些準則，並且直接刪除該函數。 可預計 devel 分支版本是不穩定的，並且會在沒有通知的情況下更改 API（儘管您可通過 Bioconductor \[support site\]\[\] 將這些更改通知您的用戶）。
 
-However, if a function has existed in at least one released version of Bioconductor, these guidelines *must* be followed. The process of removing a funciton, class, method, or any exported package object takes approximately three release cycles (about 18 months).
+但是，如果有一個函數至少存在於一個已發布的 Bioconductor 版本中 ，那*必須*遵守這些準則。 刪除函數、類、方法或任何導出的包對象的過程，大約需要三個發布週期（約 18 個月）。
 
-## How To Deprecate A Function
+## 如何棄用函數
 
-### Step 1: Deprecate the function
+### 步驟１：棄用該功能
 
-When you first decide to eliminate a function, you should mark it as deprecated in the devel branch. Do this by calling
-<code>.Deprecated()</code> inside the function. To do this, you must provide a replacement function which should be used in place of the old function. Example:
+當你開始決定移除一個函數時，你應該在開發分支版本，把它標記為已棄用。 可以通過調用 <code>.Deprecated()</code> 內部函數，來標記棄用函數。 為此，您必須提供一個替換函數，應該用來代替舊的函數。 範例：
 
     myOldFunc <- function()
     {
         .Deprecated("myNewFunc")
-        ## use new function, or remainder of myOldFunc
+        ## 使用新函數, 或在此提供舊函數 (myOldFunc) 的提示
     }
 
-This causes a warning to be emitted whenever a user calls
-<code>myOldFunc()</code>. See <code>?.Deprecated</code> for more information.
+這會在用戶調用 <code>myOldFunc()</code> 時，發出警告提示。 請參閱 <code>?.Deprecated</code> 了解更多資訊。
 
-Indicate in the man page of the old function that it has been deprecated, and suggest a replacement function. Be sure the old function is not called in man page examples or vignette code chunks; R CMD check should report this.
+在舊函數的手冊頁 (man page) 中，指出該舊函數已棄用，並建議一個替換函數。 Be sure the old function is not called in man page examples or vignette code chunks; R CMD check should report this.
 
     \name{MyPkg-deprecated}
     \alias{MyPkg-deprecated}
