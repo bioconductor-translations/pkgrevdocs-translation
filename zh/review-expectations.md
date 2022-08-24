@@ -1,54 +1,54 @@
-# 审查预期
+# Review Expectations
 
-来自Bioconductor社群的任何人如果在Bioconductor中拥有自己的包，都可以自愿成为社群审查者来评估提交于\[新提交追踪\]\[正在审查中的包\] 的包。 以下概括了社群审核者预期所需做的事。
+Anyone from the Bioconductor community that has a package in Bioconductor can volunteer to become a community reviewer to assess incoming packages submitted through the \[New Submission Tracker\]\[Packages Under Review\]. The following overviews what is expected of community reviewers.
 
--   [资质](#review-qualifications)
--   [时限保证](#review-time-commitment)
--   [任务分配](#review-assignments)
--   [预期和截止时间](#review-expectations-and-deadlines)
--   [请求分配调动和临时休止](#review-reassignment-and-temporary-leave)
--   [入职](#review-onboarding)
--   [认可](#review-recognition)
--   [志愿活动](#review-volunteer)
+-   [Qualifications](#review-qualifications)
+-   [Time Commitment](#review-time-commitment)
+-   [Assignments](#review-assignments)
+-   [Expectations and deadlines](#review-expectations-and-deadlines)
+-   [Requesting reassignment and temporary leave of assignment](#review-reassignment-and-temporary-leave)
+-   [On-boarding](#review-onboarding)
+-   [Recognition](#review-recognition)
+-   [Volunteer](#review-volunteer)
 
-## 资质
+## Qualifications
 
-积极维护Bioconductor包
+Actively maintaining a Bioconductor package
 
-## 时限保证
+## Time commitment
 
-软件包审查可能因提交包的质量和组织而变化。 平均而言，单个包的审查时间在30分钟至1.5小时之间。
+Package reviews can vary depending on the quality and organization of the submitted package. On average a package review for a single package is between 30 min - 1.5 hour.
 
-我们还计划每季度举行一次所有目前活跃的审查人员的“全员”会议。 该会议将使审核者熟悉激活于CRAN或Biocchk 中的任何新要求、类、检查等。 它也将是向更大的小组提出问题或意见的场所，也许会指出常见意见(或将其作为自动检查实施)。 每个人或多或少会有审查风格上的不同之处，讨论每个人的侧重点将会对此有益。 审查人员应尽可能参加这些会议，我们希望每人每年至少参加一次。
+We also plan to have a quarterly “all-hands” meeting of all currently active reviewers. This meeting will be to acquaint reviewers with any new requirements, classes, checks activated in CRAN or BiocCheck, etc. It will also be a place to raise questions or comments to the larger group and perhaps point out frequently used comments (that perhaps could be implemented as an automated check). Everyone ends up having slightly different review styles and it could be beneficial to discuss what everyone finds a priority. Every effort should be made to attend these meetings and we would expect a reviewer to attend at least once a year.
 
-## 任务分配
+## Assignments
 
-包将以平均和随机的方式分配，社群审议参与度越高，分配量越多，但目前预计每周或每两周会被分配一次包。 在Bioconductor发布前的几周内会更多。
+Packages will be assigned evenly and randomly, the more community review engagement the more distributed but currently anticipate a package assigned once every week or every 2 weeks. More during the weeks leading up to a Bioconductor release.
 
-偶尔会有'附加包'/'循环依赖包'提交。 提交者可以提交同一问题（issue）下相关联的包。 当这种情况发生时，指定的审查者负责两次审查，并且在两个包都处于接受状态之前不应接受该问题。
+‘Additional Package’/‘Circular dependency’ packages are submitted occasionally. Submitters are allowed to submit related packages under the same issue. When this occurs, the assigned reviewer is responsible for both reviews and should not accept the issue until both packages are in an accepted state.
 
-## 预期和截止时间
+## Expectations and deadlines
 
-包\[s\] 预期将在分配后的 3 周内进行审查，并从构建器生成干净的构建报告。 我们计划严格限制为三周。 如果因提交人延迟，问题将因不活动而被关闭； 当提交者能够承诺及时更新和参与审查进程时，它将会重新启动。 如果因审查者延迟，问题将被重新分配给其他人。 我们将追踪重新安排的次数，如果频繁重新安排(3-4次无解释)，我们将移除此审查员，此人必须重新申请才能重新激活。 活跃的审查员预期每个Bioconductor发布周期中需要审查至少一个包。 否则，他们将不再是活跃的审查员。
+Package\[s\] will be expected to be reviewed within 3 weeks of assignment and producea clean build report from the build machine. We plan to make a hard limit for 3 weeks. If the delay is on the submitter, the issue will be closed for inactivity; it will be reopened when a submitter can commit to timely updates and engagement of the review process. If the delay is in the reviewer, it will be reassigned to someone else. We will keep track of how many reassignments occur and if there are frequent reassignments (3-4 unexplained) we will remove the reviewer and the person must reapply to be reactivated. Active reviewers are expected to review at least 1 package per Bioconductor release cycle. Otherwise they will be removed from being an active reviewer.
 
-## 请求分配调动和临时休止
+## Requesting reassignment and temporary leave of assignment
 
-如果需要针对被分配包的临时休止 (如因假期、特别繁忙时间等)，审查员应与一位包审查委员会管理员联系。 管理员将暂时停止分配任务，并且可以讨论当前分配的软件包是否需要调动分配。
+If a temporary leave of assigning packages needs to occur (vacation, particularly busy period of time, etc), a reviewer should reach out to a package review committee administrator. The administrator will temporarily stop assignments and can discuss if currently assigned packages need re-assignment.
 
-软件包审查者可在 \[审查员slack频道\]\[\] 咨询问题，并且如果需要的话可以请求交换/更改/志愿参与包的审查。 请求也可以通过直接联系包审查管理员进行。
+There is a \[reviewers slack channel\]\[\] for package reviewers to ask questions and if necessary ask to swap/switch/volunteer to review packages. Requests can also be made by directly contacting the package review administrator.
 
-审查人员不应仅仅因为在某一特定领域缺乏兴趣或专业知识而要求调动。 审查应当侧重于包的易用性、文档、良好书写的代码和互通性。 如果审查者知道与提交包相关领域的“专家”，可请求某人提供额外的评价（包括正式纳入包审查列表以外者），而不需要明确要求重新分配。
+Reviewers should not request reassignment simply because of lack of interest or lack of expertise in a particular area. The review should focus on ease-of-use of the package, documentation, well written code, and interoperability. If a reviewer knows of a particular ‘expert’ in the field relating to the submitted package they can request someone offer additional comments (including those not officially part of the package review list) without explicitly asking for reassignment.
 
 Frequent requests for reassignement should consider a longer leave of absence agreement with the package review administrator. If frequent requests are being made for reassignement the reviewer will be notified and at risk for being removed from the active review process. If a reviewer is removed, they must reapply to become an active reviewer.
 
-## 入职
+## On-boarding
 
 New volunteers will undergo an on-boarding process before becoming fully active reviewers. The on-boarding process involves doing at least one paired review with a currently active reviewing member. Coordination of the paired review should be communicated between the mentor and mentee. The recommended practice will be that each do a separate review of a currently submitted package and compare the results. The currently active member will then decide if another paired review is necessary or if the review was sufficient to continue on with solo reviews.
 
-## 认可
+## Recognition
 
 Feel free to advertise on CV and resumes as being a Bioconductor reviewer. Reviewers will also be listed on the \[Community Reviewers Webpage\]\[reviewer-list\]. Reviewers may optionally opt-out of being listed on the webpage by contacting a package review administrator. Ideally, we plan to have badges for notable achievements and milestones, and a sticker is in progress.
 
-## 志愿活动
+## Volunteer
 
 Refer to the chapter [Volunteer to Review](#review-volunteer-chapter) for more details.
