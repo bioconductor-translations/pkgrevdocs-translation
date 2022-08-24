@@ -1,34 +1,34 @@
-# DESCRIPTION文件
+# The DESCRIPTION file
 
-`DESCRIPTION`文件必须以正确的格式编写。 在下面的章节中，我们将介绍`DESCRIPTION`文件中的字段以及相关文件。
+The `DESCRIPTION` file must be properly formatted. The following sections will review some important notes regarding fields of the `DESCRIPTION` file and associated files.
 
 ## `Package`
 
-此字段应包含软件包的名字。 注意软件仓库（如GitHub）和软件包的名字应该一致（其中大小写也应该一致）。
+This is the name of the package. The repository name and the name of the Package in the description should match (including case-sensitive).
 
 ## `Title`
 
-这是一小段关于软件包简单描述的短句。
+This is a brief but descriptive title for the package.
 
 ## `Version`
 
-所有\[*Bioconductor*\]软件包使用`x.y.z`版本号命名规范。 请参见 \[版本控制\]以了解Bioconductor是如何对release分支和devel分支进行版本控制的。 如果软件包是第一次提交到Bioconductor，那么其版本号应该被设为`0.99.0`。
+All \[*Bioconductor*\]\[\] packages use an `x.y.z` version scheme. See \[Version Numbering\]\[versioning\] for specifics to how the release and devel Bioconductor versioning proceeds. When first submitted to Bioconductor, a package should have pre-release version `0.99.0`.
 
-如下规则适用于版本号的控制：
+The following rules apply:
 
--   `x`一般被设为0，如果软件包还没有被正式发布。
--   在release分支中，`y`应该被设置为偶数，而在devel分支中，y应该被设置为奇数。 一般来说，开发者无需自行增加y的值，在每次Bioconductor新版本发布时，y的值会自动加1。
--   每当有新的改动提交到Bioconductor上时，`z`需要加1。
+-   `x` is usually 0 for packages that have not yet been released.
+-   `y` is even for packages in release, and odd for packages in devel. Generally, do not bump this number especially in pre-release.
+-   `z` is incremented whenever committing changes to a package.
 
 ## `Description`
 
-此字段包含了对软件包详细的描述。文字描述无需太长，但是其必须涵盖关于软件包功能的详细描述。 一般至少需要包含三个完整的句子。
+The description should be a relatively short but detailed overview of what the package functionality entails. It should be at least three complete sentences.
 
 ## `Authors@R`
 
-应该使用`Authors@R`而不是Authors字段。 此处应该填写软件包的维护者，其角色(例如`cre`，作者)和其常用邮箱。 对于将来在软件包中出现的任何问题，用户可以会通过此邮箱和维护者联系。
+The `Authors@R` field should be used. A maintainer designation (`cre` for `Authors@R`) is required with an actively maintained email address. This email address will be used for contact regarding any issues that arise with the package in the future.
 
-如果软件包作者有[ORCiD](https://orcid.org/)标识符，那么标识符可以在person()函数中可以通过一个名为ORCID的元素并通过comment参数设置。
+For persons with an [ORCiD](https://orcid.org/) identifier provide the identifier via an element named “ORCID” in the comment argument of `person()`.
 
     person("Lori", "Shepherd",
       email = Lori.Shepherd@roswellpark.org,
@@ -54,19 +54,19 @@ The package should contain only code that can be redistributed according to the 
 
 ## `LazyData`
 
-如果软件包额外包含了数据文件，我们建议不要使用`LazyData: TRUE`。 根据我们的经验，对于很大的数据文件，设置LazyData为TRUE只会使软件包的载入变得很慢。 当然如果有例外的情形的话，请在提交软件包时同时提交此例外的详细描述。
+For packages that include data, we recommend not including `LazyData: TRUE`. In our experience it only slows down the loading of packages with large data. There are of course exceptions; please provide reasoning if included.
 
 ## `Depends`, `Imports`, `Suggests`, `Enhances`
 
-所有依赖的软件包必须存在于Bioconductor的biocViews列表中，或者存在于CRAN上。Bioconductor不支持Remotes字段，因此Bioconductor不允许依赖于只存在于其他软件仓库（例如GitHub）的软件包。
+All packages must be available via \[*Bioconductor*’s biocViews\]\[biocViews\] or \[CRAN\]\[CRAN pkgs\]; the use of the `Remotes:` field is not supported, hence dependencies only available on other repositories (e.g. <i class="fab fa-github"></i> GitHub) are not allowed nor is specifiy an explicit version of a package.
 
-直接使用其他软件包中经过广泛测试的功能，而不是重新编写具有相同的功能的代码。 使用Bioconductor中广泛使用的软件包（如*[biomaRt](https://bioconductor.org/packages/3.15/biomaRt)*， *[AnnotationDbi](https://bioconductor.org/packages/3.15/AnnotationDbi)*，或者 *[Biostrings](https://bioconductor.org/packages/3.15/Biostrings)*） 和定义了基础类的软件包（如*[SummarizedExperiment](https://bioconductor.org/packages/3.15/SummarizedExperiment)*， *[GenomicRanges](https://bioconductor.org/packages/3.15/GenomicRanges)*::GRanges， *[S4Vectors](https://bioconductor.org/packages/3.15/S4Vectors)*::Rle或者 *[Biostrings](https://bioconductor.org/packages/3.15/Biostrings)*::DNAStringSet）。请避免重复编写其他软件包已经实现的功能。 请见\[基础Bioconductor方法和类\]\[bioc-common\]. Bioconductor的审核人在这点上会非常严格！ 新的软件包应该很好和现有的Bioconductor中已定义的类交互和兼容。不应该重复实行已有的功能，尤其是在数据导入方面。
+Reuse, rather than re-implement or duplicate, well-tested functionality from other packages. Make use of appropriate existing packages (e.g., *[biomaRt](https://bioconductor.org/packages/3.15/biomaRt)*, *[AnnotationDbi](https://bioconductor.org/packages/3.15/AnnotationDbi)*, *[Biostrings](https://bioconductor.org/packages/3.15/Biostrings)*, etc.) and classes (e.g., *[SummarizedExperiment](https://bioconductor.org/packages/3.15/SummarizedExperiment)*, *[GenomicRanges](https://bioconductor.org/packages/3.15/GenomicRanges)*::GRanges, *[S4Vectors](https://bioconductor.org/packages/3.15/S4Vectors)*::Rle, *[Biostrings](https://bioconductor.org/packages/3.15/Biostrings)*::DNAStringSet, etc.), and avoid duplication of functionality available in other Bioconductor packages. See \[Common Bioconductor Methods and Classes\]\[bioc-common\]. Bioconductor reviewers are very strict on this point! New packages should be interoperable with existing Bioconductor classes and should not reimplement functionality especially with regards to importing/reading data.
 
-依赖的软件包只能在`Depends:`，`Imports:`, `Suggests:`或者`Enhances:`中出现一次。 下面的规则可以来指导如何确定依赖包的类型：
+A package can be listed only once between `Depends:`, `Imports:`, `Suggests:`, or `Enhances:`. Determine placement of package based on the following guidelines:
 
--   `Imports:` 字段中列出的依赖包应该只在软件包命名空间内部使用，例如依赖包中定义的方法和类。 一般来说，大部分依赖包都在此列出。
+-   `Imports:` is for packages that provide functions, methods, or classes that are used inside your package name space. Most packages are listed here.
 
--   `Depends:`字段中列出的依赖包应该提供软件包使用的关键功能并且这些关键功能直接被用户使用，例如`GenomicRanges`包被列在`GenomicAlignments`包的Depends中。 一般来说，Depends字段包含超过三个依赖包不常见。
+-   `Depends:` is for packages that provide essential functionality for users of your package, e.g., the `GenomicRanges` package is listed in the `Depends:` field of `GenomicAlignments`. It is unusual for more than three packages to be listed as `Depends:`.
 
 -   `Suggests:` is for packages used in vignettes, examples, and in conditional code.Commonly, annotation and experiment packages (e.g., `TxDb*`) used in vignette and example code are included in this field thus avoiding a costly download. In the case where an external one-off function is required for package code, the package availability and usage can be done via:
   
@@ -88,7 +88,7 @@ If the installation process is non-trivial, a top-level [`INSTALL` file](#sysdep
 
 ## `biocViews`
 
-这个字段是必须的！
+This field is **required**!
 
 Specify at least two leaf node from \[biocViews\]\[\]. Multiple leaf terms are encouraged but terms must come from the same trunk or package type (i.e., `Software`, `AnnotationData`, `ExperimentData`, or `Workflow`). `biocViews` terms are case-sensitive.
 
@@ -98,7 +98,8 @@ The field name “biocViews” is case-sensitive and must begin with a lower-cas
 
 ## `BugReports`
 
-鼓励提供GitHub的相关链接，用来让用户报告关于软件包的任何问题。
+It is encouraged to include the relevant links to
+<i class="fab fa-github"></i> GitHub for reporting issues.
 
 ## `URL`
 
@@ -106,7 +107,7 @@ This field directs users to source code repositories, additional help resources,
 
 ## `Video`
 
-此字段包含教学视频的链接。
+This field displays links to instructional videos.
 
 ## `Collates`
 
@@ -114,4 +115,4 @@ This may be necessary to order class and method definitions appropriately during
 
 ## `BiocType`
 
-如果提交`Docker`或者`Workflow`类型的软件包，此字段是必须的。 否则，此字段可以可选的定义软件包的类型，例如`Software`，`ExperimentData`或者`Annotation`。
+This is required if submitting a `Docker` or `Workflow`. Otherwise this field could optionally define the type of Bioconductor package `Software`, `ExperimentData`, `Annotation`.
