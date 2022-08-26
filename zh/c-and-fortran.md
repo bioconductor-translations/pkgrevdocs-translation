@@ -1,38 +1,38 @@
-# C and Fortran code
+# C 和 Fortran 代碼
 
-If the package contains C or Fortran code, it should adhere to the standards and methods described in the \[System and foreign language interfaces\]\[CRAN foreign\] section of the \[Writing R Extensions\]\[\] manual.
+如果該 R 包包含 C 或是 Fortran 代碼，請遵照 \[Writing R Extensions\]\[\] 手冊裡 \[System and foreign language interfaces\]\[CRAN foreign\] 小節的標準與方法．
 
-We emphasie particular points in the following sections.
+以下幾節中我們列出一些特別的注意事項。
 
-### Internal functions
+### 内部函数
 
-Use internal <i class="fab fa-r-project"></i> functions, e.g., `R_alloc` and random number generators (RNGs), over system-supplied ones.
+使用內部 <i class="fab fa-r-project"></i> 函數，例如 `R_alloc` 和隨機數生成器 (RNG)，而不是系統提供的函數。
 
-### C function registration
+### C 函數註冊
 
-Use C function registration (See the \[Registering native routines\]\[\] section of the \[Writing R Extensions\]\[\] manual).
+使用 C 函數註冊 (請參見 \[Writing R Extensions\]\[\] 手冊的 \[Registering native routines\]\[\] 小節)
 
-### Checks for user interruption
+### 檢查用戶中斷
 
-Use `R_CheckUserInterrupt()` in C level loops when there is a chance that they may not terminate for certain parameter settings or when their run time exceeds 10 seconds with typical parameter settings, and the method is intended for interactive use.
+當有可能因某些參數設置，或當他們的典型參數設置，運行時間超過 10 秒，並且 方法旨在用於交互式使用時，請在 C 級循環 （C level loops) 中使用 `R_CheckUserInterrupt()`．
 
 ### Makevars
 
-Make judicious use of the `Makevars` and `Makefile` files within a package. These are often not required at all (See the \[Configure and cleanup\]\[CRAN config\] section of the \[Writing R Extensions\]\[\] manual).
+建議靈活使用在每個包裡的 `Makevars` 和 `Makefile` 文件。 這些通常根本不需要（參見\[Writing R Extensions\]\[\] 手冊 的 \[Configure and cleanup\]\[CRAN config\] 小節）。
 
-### Warnings and optimizations
+### 警告與最佳化 (Warnings and optimizations)
 
-During package development, enable all warnings and disable optimizations. If you plan to [use a debugger](#debugging-cc-code), tell the compiler to include debugging symbols.
+在包開發期間，啟用所有警告並禁用優化。 如果您打算[使用調試器](#debugging-cc-code)，請在編譯器設定您的調試符號。
 
-The easiest way to enforce these is to create a user-level `Makevars` file user’s home directory in a sub-directory called ‘.R’). See examples below for flags for common toolchains. Consult the section about \[Makevars files\]\[\] in the \[Writing R Extensions\]\[\] manual.
+執行這些的最簡單方法是創建用戶級 `Makevars` 文件用戶的主目錄在名為“.R”的子目錄中）。 查看下面範例 是常用工具鏈 (toolchains) 的標誌。 請查閱 \[Writing R Extensions\]\[\] 手冊的 \[Makevars files\]\[\] 取得更多細節．
 
-Example for gcc/g++:
+Gcc/g++ 範例：
 
     CFLAGS=-Wall -Wextra -pedantic -O0 -ggdb
     CXXFLAGS=-Wall -Wextra -pedantic -O0 -ggdb
     FFLAGS=-Wall -Wextra -pedantic -O0 -ggdb
 
-Example for clang/clang++:
+Clang/clang++ 範例:
 
     CFLAGS=-Weverything -O0 -g
     CXXFLAGS=-Weverything -O0 -g
