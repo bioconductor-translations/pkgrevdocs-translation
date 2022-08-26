@@ -1,32 +1,34 @@
-# 棄用指南 （Deprecation Guidelines）
+# Deprecation Guidelines
 
-在軟件開發的過程中，可能需要刪除某些函數 (function)、類 (class)、方法 (methods) 或數據對象 (data objects)。 以下是一些指導方針，在刪除上述項目過程中，可確保對使用者造成的最小程度的干擾。
+In the normal course of software development, functions, classes, methods, or data objects may need to be removed. Here are some guidelines for ensuring that this process is minimally disruptive to your users.
 
-## 什麼需要棄用 (Deprecate)？
+## What to Deprecate?
 
-任何不再使用或不再需要的函數、類、方法或數據。
+Any function, class, method, or data that is no longer used or needed.
 
-## 何時遵循棄用準則？
+## When to Follow These Guidelines?
 
-如果你在包的 devel 分支版本中引入一個函數，決定不再使用，您不遵循這些準則，並且直接刪除該函數。 可預計 devel 分支版本是不穩定的，並且會在沒有通知的情況下更改 API（儘管您可通過 Bioconductor \[support site\]\[\] 將這些更改通知您的用戶）。
+If you introduce a function into the devel branch of your package, then soon after decide not to use it, you may simply remove the function without following these guidelines. It is expected that the devel branch is unstable and subject to API changes without notice (though you may decide to communicate these changes to your users via the Bioconductor \[support site\]\[\]).
 
-但是，如果有一個函數至少存在於一個已發布的 Bioconductor 版本中 ，那*必須*遵守這些準則。 刪除函數、類、方法或任何導出的包對象的過程，大約需要三個發布週期（約 18 個月）。
+However, if a function has existed in at least one released version of Bioconductor, these guidelines *must* be followed. The process of removing a funciton, class, method, or any exported package object takes approximately three release cycles (about 18 months).
 
-## 如何棄用函數
+## How To Deprecate A Function
 
-### 步驟１：棄用該功能
+### Step 1: Deprecate the function
 
-當你開始決定移除一個函數時，你應該在開發分支版本，把它標記為已棄用。 可以通過調用 <code>.Deprecated()</code> 內部函數，來標記棄用函數。 為此，您必須提供一個替換函數，應該用來代替舊的函數。 範例：
+When you first decide to eliminate a function, you should mark it as deprecated in the devel branch. Do this by calling
+<code>.Deprecated()</code> inside the function. To do this, you must provide a replacement function which should be used in place of the old function. Example:
 
     myOldFunc <- function()
     {
         .Deprecated("myNewFunc")
-        ## 使用新函數, 或在此提供舊函數 (myOldFunc) 的提示
+        ## use new function, or remainder of myOldFunc
     }
 
-這會在用戶調用 <code>myOldFunc()</code> 時，發出警告提示。 請參閱 <code>?.Deprecated</code> 了解更多資訊。
+This causes a warning to be emitted whenever a user calls
+<code>myOldFunc()</code>. See <code>?.Deprecated</code> for more information.
 
-在舊函數的手冊頁 (man page) 中，指出該舊函數已棄用，並建議一個替換函數。 請確保在小插圖代碼塊 ( vignette code chunks) 或手冊頁 (man page examples) 示例中未調用舊函數； 執行 R CMD 檢查時需提供如下報告。
+Indicate in the man page of the old function that it has been deprecated, and suggest a replacement function. Be sure the old function is not called in man page examples or vignette code chunks; R CMD check should report this.
 
     \name{MyPkg-deprecated}
     \alias{MyPkg-deprecated}
@@ -48,18 +50,18 @@
       }
     }
 
-### 步驟 2 ：將函數標記為已失效
+### Step 2: Mark the function as defunct
 
-在函數被棄用後，請確保所有該棄用函數，在下一個發布週期的開發分支版本，已經無法運行且失效。 這意味著調用舊函數時，將不會運行任何其他代碼，並且返回一個信息性錯誤。 範例：
+In the next release cycle, after your function has been deprecated, it must be made defunct in the devel branch. This means a call to the old function will return an informative error but not run any additional code. Example:
 
     myOldFunc <- function()
     {
         .Defunct("myNewFunc")
     }
 
-有關詳細信息，請參閱 <code>?Defunct</code>。
+See <code>?Defunct</code> for more information.
 
-刪除已棄用函數 (defunct function) 的文檔，並添如下代碼到手冊頁：
+Remove the documentation of the defunct function, and add to a man page such as the following:
 
     \name{MyPkg-defunct}
     \alias{myOldFunc}
@@ -70,21 +72,21 @@
       Defunct functions are: \code{myOldFunc}
     }
 
-### 步驟 3：刪除已棄用函數
+### Step 3: Remove the function
 
-在下一個發布週期中，在您的功能被標記為 defunct，從你的包 R 代碼和 devel 分支中的 NAMESPACE 中完全刪除它。 同時，刪除該功能的任何手冊頁內容。
+In the next release cycle, after your function has been marked as defunct, remove it entirely from your package R code and NAMESPACE in the devel branch. Also remove any man page content that documents the function.
 
-保留上一步的手冊頁，以便調用下面函數時
+Leave the man page from the previous step in place so that
 
     help("MyPkg-defunct")
 
-仍然顯示已失效函數的列表及其相應的替代函數。
+still shows the list of defunct functions and their appropriate replacements.
 
-## 如何棄用包數據集
+## How To Deprecate A Package Dataset
 
-### 步驟 1 - 保存一個承諾對象 (a promise object)
+### Step 1 - Save a promise object
 
-棄用數據集的第一步是向 Bioconductor 的開發分支所有使用者發出警告訊息，表明該數據集將不再被使用。 可以使用 `warning` 消息，在開發者加載該數據集時進行提示該數據已棄用。 我們首先使用 `delayedAssign` 函數，創建一個承諾對象 (a promise object) 與棄用數據集名稱同名．請使用以下範例來完成上述步驟：
+The initial step of deprecating a dataset is to signal to any users on the devel branch of Bioconductor that the dataset will no longer be used. This can be done using a `warning` message when the devel user loads the dataset. In order to do this, we first create a promise object with the same name as the dataset name using the `delayedAssign` function:
 
     delayedAssign(
         x = "pkgDataset",
@@ -94,20 +96,20 @@
         }
     )
 
-您還包含輸出該棄用數據集在警告提示訊息裏。 然後，我們使用 `save` 函數將包中的原始 `.Rda` 數據集文件替換為 promise 對象和數據集：
+You can also include the dataset as an output after the warning. We then replace the original `.Rda` dataset file in the package with the promise object and dataset using the `save` function:
 
     save("pkgDataset", eval.promises = FALSE, file = "data/pkgDataset.Rda")
 
-將 `eval.promises` 參數設置為 `FALSE`，我們可以延遲 評估承諾對象，直到用戶加載數據 `data("pkgDataset", package = "yourPkg")`。 然後用戶會得到數據集與警告訊息。 警告訊息應包括說明這會將用戶指向一個新的數據集．如果有必要，也可提供函數去替換數據集．
+With the `eval.promises` argument set to `FALSE`, we can delay the evaluation of the promise object until the user loads the data with `data("pkgDataset", package = "yourPkg")`. The user will then get a warning along with the dataset. The warning should include instructions that will point the user to a new dataset or functionality that will replace the data, if necessary.
 
-### 步驟 2 - 更新文檔
+### Step 2 - Update documentation
 
-保存承諾對像後，我們會更新文檔以反映更改，並根據情況為用戶提供額外的詳細信息和資源。 我們建議在數據文檔標題中包含“\[Deprecated\]”標籤。
+After the promise object has been saved, we update the documentation to reflect the changes and provide additional details and resources for users as necessary. It is recommended to include a “\[Deprecated\]” label in the data documentation title.
 
-### 步驟 3 - 取消數據集
+### Step 3 - Defunct the dataset
 
-在接下來的發布週期中，您可以將警告消息更新為表示數據集已失效，並從承諾對象移除．可透過 `delayedAssign` 函數來提示警告。 我們還可以更新 “\[Deprecated\]” 標籤文檔標題為“\[Defunct\]”。
+In the following release cycle, you can update the warning message to indicate that the dataset is defunct and remove it entirely from the promise object i.e., from the expression in the `delayedAssign` function. We can also update the “\[Deprecated\]” label in the documentation title to “\[Defunct\]”.
 
-## 如何棄用包
+## How to Deprecate a Package
 
-請參閱 [Package End of Life Policy](#package-end-of-life-policy)。
+Please see section on [Package End of Life Policy](#package-end-of-life-policy)
