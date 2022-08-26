@@ -1,6 +1,6 @@
 # The NAMESPACE file
 
-[NAMESPACE](http://cran.fhcrc.org/doc/manuals/R-exts.html#Package-namespaces) 文件定义了导入到命名空间并导出给用户的函数、类和方法。
+A [NAMESPACE](http://cran.fhcrc.org/doc/manuals/R-exts.html#Package-namespaces) file defines the functions, classes, and methods that are imported into the namespace, and exported for users.
 
 In the following section we describe what \[*Bioconductor*\]\[\] reviewers will be looking for in this file.
 
