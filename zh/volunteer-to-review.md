@@ -1,3 +1,3 @@
-# Volunteer to Review
+# 加入 Bioconductor 社群評審員
 
-Anyone from the Bioconductor community can volunteer to become a Bioconductor community reviewer to review incoming packages submitted through the \[New Submission Tracker\]\[Packages Under Review\]. Please review the [Reviewer Expectations](#review-expectation) and the *Bioconductor* \[Code of Conduct\]\[\] before filling out the [volunteer form](https://forms.gle/myLWsb7JVVrZa3xM9).
+Bioconductor 社區的任何人都可以自願成為一名 Bioconductor 社群審查員，透過通過 \[New Submission Tracker\]\[Packages Under Review\]，幫忙評估新提交的包． 在填寫 [volunteer form](https://forms.gle/myLWsb7JVVrZa3xM9) 前，請閱讀 [Reviewer Expectations](#review-expectation) 和*Bioconductor* \[Code of Conduct\]\[\] 。
