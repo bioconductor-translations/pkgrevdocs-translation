@@ -1,3 +1,3 @@
-# 加入 Bioconductor 社群評審員
+# 志愿参与审查
 
-Bioconductor 社區的任何人都可以自願成為一名 Bioconductor 社群審查員，透過通過 \[New Submission Tracker\]\[Packages Under Review\]，幫忙評估新提交的包． 在填寫 [volunteer form](https://forms.gle/myLWsb7JVVrZa3xM9) 前，請閱讀 [Reviewer Expectations](#review-expectation) 和*Bioconductor* \[Code of Conduct\]\[\] 。
+来自Bioconductor社群的任何人如果在Bioconductor中拥有自己的包，都可以自愿成为社群审查者来评估提交于\[新提交追踪（New Submission Tracker）\]\[正在审查中的包（Packages Under Review）\] 的包。 请先查看 [审查预期](#review-expectation) 和*Bioconductor * \[行为守则\]\[\] 再填写[志愿表格（volunteer form）](https://forms.gle/myLWsb7JVVrZa3xM9) 。
