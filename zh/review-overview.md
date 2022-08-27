@@ -1,7 +1,7 @@
-# (PART) Package Reviewer Resources
+# (PART) 包审查者资源
 
-# Overview
+# 概述
 
-The following sections contain resources for package reviewers and those interested in becoming package reviewers. You will find reviewer expectations, useful tools, and how to volunteer to be a community reviewer.
+以下章节包含对于包审核者和有兴趣成为包审核者的资源。 你将会找到对于审查者的预期、实用的工具以及如何志愿成为社群审查者。
 
-We also encourage communication and conversation on any package review from the community in addition to assigned reviewers: \[Packages Under Review\]\[\]. All package reviews are publicly accessible, therefore any feedback and interactions on submitted packages must abide by the Bioconductor \[Code of Conduct\]\[\].
+除了分配的审查者外，我们还鼓励社群成员就任何包的审查进行沟通和对话：\[在审核中的包（Packages Under Review）\]\[\]。 所有的包审查都是公开的，因此，提交的包上的任何反馈和互动必须遵守Bioconductor\[行为守则\]\[\]。
