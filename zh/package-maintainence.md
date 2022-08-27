@@ -1,5 +1,5 @@
-# (PART) *Bioconductor* Package Maintenance
+# (PART) * Bioconductor * 包维护
 
-# Overview
+# 概述
 
-This section offers useful tools and help pages for continued maintenance and development of packages already existing on \[*Bioconductor*\]\[\].
+本章节提供了有用的工具和帮助页面以继续维护和开发已经存在于\[*Bioconductor *\]\[\] 的包。
