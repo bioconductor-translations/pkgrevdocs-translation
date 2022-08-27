@@ -4,14 +4,14 @@
 
 ## 介绍
 
-[*Bioconductor*](https://bioconductor.org) 项目促进高质量的、拥有良好文档的且互通的软件。 这些指南有助于实现这一目标，而不是为了给软件包作者带来过重的负担。 难以 满足准则的作者应当寻求[bioc-devel](https://stat.ethz.ch/mailman/listinfo/bioc-devel) 邮件列表征求意见。
+[*Bioconductor*](https://bioconductor.org) 项目促进高质量的、拥有良好文档的且互通的软件。 这些指南有助于实现这一目标，而不是为了给包作者带来过重的负担。 难以 满足准则的作者应当寻求[bioc-devel](https://stat.ethz.ch/mailman/listinfo/bioc-devel) 邮件列表征求意见。
 
-当开发[*Bioconductor*](https://bioconductor.org)包时，软件包维护者应尽可能严格地遵守这些指南。
+当开发[*Bioconductor*](https://bioconductor.org)包时，包维护者应尽可能严格地遵守这些指南。
 
-创作 R 软件包的一般说明可在[Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) 手册中找到。可在 <i class="fab fa-r-project"></i>
+创作 R 包的一般说明可在[Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) 手册中找到。可在 <i class="fab fa-r-project"></i>
 (`RShowDoc("R-exts")`) 或 [R 网站](http://cran.fhcrc.org/manuals.html) 查阅。
 
-请记住，这些是接受软件包的最低要求，软件包仍将受以下其他准则的约束，并需接受受过培训的 [*Bioconductor* 包 审查员](https://bioconductor.org/about/package-reviewers/) 的正式技术审查。
+请记住，这些是接受包的最低要求，包仍将受以下其他准则的约束，并需接受受过培训的 [*Bioconductor* 包 审查员](https://bioconductor.org/about/package-reviewers/) 的正式技术审查。
 
 ## 参与贡献
 
