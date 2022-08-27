@@ -1,6 +1,6 @@
 # 审查预期
 
-来自Bioconductor社群的任何人如果在Bioconductor中拥有自己的包，都可以自愿成为社群审查者来评估提交于\[新提交追踪\]\[正在审查中的包\] 的包。 以下概括了社群审核者预期所需做的事。
+来自Bioconductor社群的任何人如果在Bioconductor中拥有自己的包，都可以自愿成为社群审查者来评估提交于\[新提交追踪（New Submission Tracker）\]\[正在审查中的包（Packages Under Review）\] 的包。 以下概括了社群审核者预期所需做的事。
 
 -   [资质](#review-qualifications)
 -   [时限保证](#review-time-commitment)
@@ -17,7 +17,7 @@
 
 ## 时限保证
 
-软件包审查可能因提交包的质量和组织而变化。 平均而言，单个包的审查时间在30分钟至1.5小时之间。
+包审查可能因提交包的质量和组织而变化。 平均而言，单个包的审查时间在30分钟至1.5小时之间。
 
 我们还计划每季度举行一次所有目前活跃的审查人员的“全员”会议。 该会议将使审核者熟悉激活于CRAN或Biocchk 中的任何新要求、类、检查等。 它也将是向更大的小组提出问题或意见的场所，也许会指出常见意见(或将其作为自动检查实施)。 每个人或多或少会有审查风格上的不同之处，讨论每个人的侧重点将会对此有益。 审查人员应尽可能参加这些会议，我们希望每人每年至少参加一次。
 
@@ -43,12 +43,12 @@
 
 ## 上岗
 
-新的志愿者将在完全成为活跃的审查人员之前接受上岗培训。 上岗流程包括至少进行一次与目前活跃的审查者配对共同进行的审查。 配对审查的协调需在指导者与被指导者之间进行。 The recommended practice will be that each do a separate review of a currently submitted package and compare the results. The currently active member will then decide if another paired review is necessary or if the review was sufficient to continue on with solo reviews.
+新的志愿者将在完全成为活跃的审查人员之前接受上岗培训。 上岗流程包括至少进行一次与目前活跃的审查者配对共同进行的审查。 配对审查的协调需在指导者与被指导者之间进行。 我们建议每人对目前提交的软件包各自进行审查并比较结果。 随后，当前活跃的成员将决定是否需要另一次配对审查，或该审查者已足以单独进行审查。
 
 ## 认可
 
-Feel free to advertise on CV and resumes as being a Bioconductor reviewer. Reviewers will also be listed on the \[Community Reviewers Webpage\]\[reviewer-list\]. Reviewers may optionally opt-out of being listed on the webpage by contacting a package review administrator. Ideally, we plan to have badges for notable achievements and milestones, and a sticker is in progress.
+您可以尽管在简历里声称您是Bioconductor的审核员。 审查者也将被列入\[社群审查者网页（Community Reviewers Webpage）\]\[审查者列表（reviewer-list）\]。 审查者可以通过联系包审查管理员而退出网页上的列表。 理想的情况是，我们计划为显著的成就和里程碑发放徽章，贴纸也正在制作中。
 
 ## 志愿活动
 
-Refer to the chapter [Volunteer to Review](#review-volunteer-chapter) for more details.
+详情请参阅第 [志愿参与审查](#review-volunteer-chapter)。
