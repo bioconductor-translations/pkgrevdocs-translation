@@ -11,19 +11,19 @@
 -   [软件包命名原则](#naming)
 -   [对作者/维护者的期望](#author)
 -   [提交](#submission)
--   [实验数据包](#experPackage)
--   [注释包](#annPackage)
+-   [实验数据（Experiment data）包](#experPackage)
+-   [注释（Annotation）包](#annPackage)
 -   [工作流程（workflow）包](#workPackage)
 -   [审核过程](#whattoexpect)
--   [Following Acceptance](#afteraccept)
--   [Additional Support](#support)
+-   [接受之后](#afteraccept)
+-   [额外支持](#support)
 
-## Introduction
+## 介绍
 
-To submit a package to *Bioconductor* the package should:
+要向 *Bioconductor*提交软件包 ，软件包应：
 
--   Address areas of high-throughput genomic analysis, e.g., sequencing, expression and other microarrays, flow cytometry, mass spectrometry, image analysis; see \[biocViews\]\[\].
--   Interoperate with other *Bioconductor* packages by *re-using common data structures* (see \[Common Bioconductor Methods and Classes\]\[bioc-common\]) and existing infrastructure (e.g., `rtracklayer::import()` for input of common genomic files).
+-   处理高通量基因组分析领域，例如测序、基因表达和其他微阵列、流式细胞术、质谱、图像分析；见 \[biocViews\]\[\]。
+-   通过*重用通用数据结构 （common data structures）*（参见\[通用 Bioconductor 方法和类\]\[bioc-common\]）和现有基础设施（例如，`rtracklayer::import()` 用于输入通用基因组文件，与其他*Bioconductor*包进行互操作。
 -   Adopt software best practices that enable reproducible research and use, such as full documentation and vignettes (including fully evaluated code) as well as commitment to long-term user support through the *Bioconductor* \[support site\]\[\].
 -   Not exist on CRAN. A package can only be submitted to one or the other.
 -   Comply with \[Package Guidelines\]\[guidelines\].
