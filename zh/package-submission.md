@@ -1,20 +1,20 @@
-# (PART) 包的提交
+# (PART) 软件包的提交
 
-# Overview
+# 概述
 
-The following page gives an overview of the submission process along with key principles to follow. See also \[Package Guidelines\]\[guidelines\] for package specific guidelines and requirement and the \[*Bioconductor* new package submission tracker\]\[tracker\].
+以下页面概述了提交过程以及要遵循的关键原则。 另请参阅\[软件包准则\]\[准则\] 以了解软件包特定指南和要求以及\[*Bioconductor* 新软件包提交追踪\]\[追踪\]。
 
-# Bioconductor Package Submissions
+# Bioconductor软件包提交
 
--   [Introduction](#subintro)
--   [Types of Packages](#type)
--   [Package Naming Policy](#naming)
--   [Author/Maintainer Expectations](#author)
--   [Submission](#submission)
--   [Experiment data package](#experPackage)
--   [Annotation package](#annPackage)
--   [Workflow package](#workPackage)
--   [Review Process](#whattoexpect)
+-   [介绍](#subintro)
+-   [软件包类型](#type)
+-   [软件包命名原则](#naming)
+-   [对作者/维护者的期望](#author)
+-   [提交](#submission)
+-   [实验数据包](#experPackage)
+-   [注释包](#annPackage)
+-   [工作流程（workflow）包](#workPackage)
+-   [审核过程](#whattoexpect)
 -   [Following Acceptance](#afteraccept)
 -   [Additional Support](#support)
 
